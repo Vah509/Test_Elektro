@@ -1,0 +1,14 @@
+🔬 site-check | standard | prod
+🎯 Первый диагностический прогон: найти проблемные страницы и причины, проверить, что все поля отчёта заполняются
+🕒 2026-10-30 17:10 UTC (Киев 30.10.2026, 19:10)
+Аудит: 🔴 0 | 🟡 42 | ⚪ 245 (страниц 68)
+PSI: измерено 23/23
+🟡 83 mobile /vykonani-roboty/hrshch-400a-skladskyi-kompleks/ · LCP 4,6 с · TBT 100
+🟡 88 mobile /vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/ · LCP 3,8 с · TBT 177
+🟡 89 mobile /vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/ · LCP 3,7 с · TBT 87
+… остальные 20 стр. ≥ 90
+Топ причин:
+1. /vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/ (90): TBT 230 мс — главный поток: Script Evaluation 413 мс; сторонний «Google Tag Manager» (блокировка 0 мс)
+2. /vykonani-roboty/ (92): LCP-картинка не оптимизирована для раннего обнаружения (fetchpriority/preload)
+3. /pro-nas/ (93): 2 блокирующих ресурсов: /js/em-site.js, /cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+Сервер /: ответ 104/118/199 мс, cf-cache DYNAMIC, сжатие br
