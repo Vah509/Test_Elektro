@@ -1,0 +1,22 @@
+name: Test Telegram
+
+on:
+  workflow_dispatch: # Позволяет запустить тест вручную из вкладки Actions на GitHub
+
+jobs:
+  test-telegram:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Telegram test script
+        run: node test-tg.mjs
+        env:
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
