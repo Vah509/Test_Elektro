@@ -1,0 +1,66 @@
+name: site-check
+
+# Запуск: положить ZIP с заданием в inbox/ (push в main) или вручную: Actions → site-check → Run workflow.
+on:
+  push:
+    branches: [main]
+    paths: ['inbox/*.zip']
+  workflow_dispatch:
+    inputs:
+      job:
+        description: 'Повторить сохранённое задание, например jobs/2026-10-30-first-standard.json (пусто = обработать inbox/)'
+        required: false
+        default: ''
+
+# Одновременно идёт только один тест. Второй ждёт в очереди и ничего не теряет:
+# каждый запуск берёт свежее состояние main и обрабатывает ВСЕ архивы из inbox/ по порядку имён.
+concurrency:
+  group: site-check
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}   # свежий конец ветки, а не коммит запуска
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Обработать очередь заданий
+        env:
+          PSI_KEY: ${{ secrets.PSI_KEY }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          JOB_INPUT: ${{ inputs.job }}
+        run: node scripts/process-jobs.mjs
+
+      - name: Сохранить сырые отчёты Lighthouse (14 дней)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raw-lighthouse
+          path: raw/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Закоммитить отчёты и удаление архивов
+        if: always()
+        run: |
+          git config user.name "site-check-bot"
+          git config user.email "site-check-bot@users.noreply.github.com"
+          git add -A inbox reports jobs targets scripts docs README.md
+          if git diff --cached --quiet; then echo "Нечего коммитить"; exit 0; fi
+          git commit -m "site-check: отчёты $(date -u +%F_%H%M) UTC"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin "${{ github.event.repository.default_branch }}" && git push origin "HEAD:${{ github.event.repository.default_branch }}" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
