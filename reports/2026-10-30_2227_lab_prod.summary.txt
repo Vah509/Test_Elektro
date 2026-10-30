@@ -1,0 +1,9 @@
+🔬 site-check | lab (lab) | prod
+🎯 Локальный Lighthouse по карточкам работ и каталогу: причина LCP 3-4 с (поздняя загрузка главного фото) без шума PSI
+🕒 2026-10-30 22:27 UTC (Киев 31.10.2026, 00:27)
+Lighthouse: измерено 4/4
+🟢 95 lab-mobile /vykonani-roboty/ · LCP 1,8 с · TBT 220
+🟢 95 lab-mobile /vykonani-roboty/hrshch-400a-skladskyi-kompleks/ · LCP 1,7 с · TBT 244
+🟢 95 lab-mobile /vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/ · LCP 1,7 с · TBT 230
+🟢 95 lab-mobile /vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/ · LCP 2,0 с · TBT 232
+Сервер /: ответ 62/68/271 мс, cf-cache DYNAMIC, сжатие br

@@ -1,0 +1,11 @@
+{
+  "id": "2026-10-30-evening-standard",
+  "goal": "Второй замер standard (вечер пятницы) с теми же параметрами, что первый: оценить повторяемость оценок и разброс между прогонами",
+  "mode": "standard",
+  "base": "https://elektroschit.com.ua",
+  "runs": 3,
+  "device": "key",
+  "detail": "full",
+  "parallel": 2,
+  "server": true
+}

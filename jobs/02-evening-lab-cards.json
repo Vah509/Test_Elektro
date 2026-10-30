@@ -1,0 +1,16 @@
+{
+  "id": "2026-10-30-evening-lab-cards",
+  "goal": "Локальный Lighthouse по карточкам работ и каталогу: причина LCP 3-4 с (поздняя загрузка главного фото) без шума PSI",
+  "mode": "lab",
+  "base": "https://elektroschit.com.ua",
+  "pages": [
+    "/vykonani-roboty/hrshch-400a-skladskyi-kompleks/",
+    "/vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/",
+    "/vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/",
+    "/vykonani-roboty/"
+  ],
+  "runs": 3,
+  "device": "mobile",
+  "detail": "full",
+  "saveRaw": true
+}

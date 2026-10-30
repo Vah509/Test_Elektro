@@ -3,5 +3,15 @@
   "date": "2026-10-30T17:17:16.049Z",
   "prefix": "reports/2026-10-30_1710_standard_prod",
   "ok": true
+ },
+ "2026-10-30-evening-standard": {
+  "date": "2026-10-30T22:27:16.524Z",
+  "prefix": "reports/2026-10-30_2220_standard_prod",
+  "ok": true
+ },
+ "2026-10-30-evening-lab-cards": {
+  "date": "2026-10-30T22:29:56.997Z",
+  "prefix": "reports/2026-10-30_2227_lab_prod",
+  "ok": true
  }
 }

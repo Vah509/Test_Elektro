@@ -1,0 +1,15 @@
+🔬 site-check | standard | prod
+🎯 Второй замер standard (вечер пятницы) с теми же параметрами, что первый: оценить повторяемость оценок и разброс между прогонами
+🕒 2026-10-30 22:20 UTC (Киев 31.10.2026, 00:20)
+Аудит: 🔴 0 | 🟡 42 | ⚪ 245 (страниц 68)
+PSI: измерено 23/23
+🟡 78 mobile /vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/ · LCP 5,7 с · TBT 168
+… остальные 22 стр. ≥ 90
+🔻 Регрессии:
+• /vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/ mobile: 90 → 78, LCP 3,2 с → 5,7 с (было 2026-10-30)
+🔺 Улучшений: 2
+Топ причин:
+1. /vykonani-roboty/ (92): LCP-картинка не оптимизирована для раннего обнаружения (fetchpriority/preload)
+2. /vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/ (92): TBT 314 мс — главный поток: Script Evaluation 527 мс; сторонний «Google Tag Manager» (блокировка 0 мс); JS /gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1 386 мс
+3. /posluhy-ta-produktsiia/zenitni-lihtari/ (94): LCP 0,9 с: дольше всего этап «Element render delay» (687 мс) — после загрузки отрисовку держат CSS/JS (блокирующие ресурсы, главный поток)
+Сервер /: ответ 37/95/118 мс, cf-cache DYNAMIC, сжатие br

@@ -1,6 +1,12 @@
-# Список страниц для режима targets. По одной на строку, # — комментарий.
-# Можно путь (/posluhy-ta-produktsiia/dvyhuny/) или полный адрес.
-# Заполним после первого тестового прогона — туда попадут страницы из «Топ причин».
-#
-# /posluhy-ta-produktsiia/dvyhuny/
-# /vykonani-roboty/
+# Проблемные страницы по первому прогону (30 окт 2026)
+# карточки работ: LCP 3-4,6 с, mobile 83-90
+/vykonani-roboty/
+/vykonani-roboty/hrshch-400a-skladskyi-kompleks/
+/vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/
+/vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/
+/vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/
+# блокирующие скрипты, TBT 300+ мс
+/pro-nas/
+/posluhy-ta-produktsiia/
+# эталон
+/

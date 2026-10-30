@@ -1,0 +1,1017 @@
+{
+ "snapshot": {
+  "date": "2026-10-30T22:27:18.058Z",
+  "base": "https://elektroschit.com.ua",
+  "label": "prod",
+  "mode": "lab",
+  "jobId": "2026-10-30-evening-lab-cards",
+  "pages": {
+   "/vykonani-roboty/|lab-mobile": {
+    "score": 95,
+    "spread": 7,
+    "lcpMs": 1842,
+    "fcpMs": 1135,
+    "tbtMs": 220
+   },
+   "/vykonani-roboty/hrshch-400a-skladskyi-kompleks/|lab-mobile": {
+    "score": 95,
+    "spread": 9,
+    "lcpMs": 1702,
+    "fcpMs": 1049,
+    "tbtMs": 244
+   },
+   "/vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/|lab-mobile": {
+    "score": 95,
+    "spread": 6,
+    "lcpMs": 1700,
+    "fcpMs": 1046,
+    "tbtMs": 230
+   },
+   "/vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/|lab-mobile": {
+    "score": 95,
+    "spread": 16,
+    "lcpMs": 2008,
+    "fcpMs": 1077,
+    "tbtMs": 232
+   }
+  },
+  "html": {}
+ },
+ "goal": "Локальный Lighthouse по карточкам работ и каталогу: причина LCP 3-4 с (поздняя загрузка главного фото) без шума PSI",
+ "jobId": "2026-10-30-evening-lab-cards",
+ "mode": "lab",
+ "runs": 3,
+ "parallel": 1,
+ "device": "mobile",
+ "counts": {
+  "ERR": 0,
+  "WARN": 2,
+  "INFO": 3
+ },
+ "stats": {},
+ "server": {
+  "pages": [
+   {
+    "path": "/",
+    "status": 200,
+    "min": 62,
+    "med": 68,
+    "max": 271,
+    "cf": "DYNAMIC",
+    "cc": "public, max-age=0, must-revalidate",
+    "enc": "br",
+    "kb": 87,
+    "server": "cloudflare"
+   },
+   {
+    "path": "/vykonani-roboty/hrshch-400a-skladskyi-kompleks/",
+    "status": 200,
+    "min": 40,
+    "med": 67,
+    "max": 89,
+    "cf": "DYNAMIC",
+    "cc": "public, max-age=0, must-revalidate",
+    "enc": "br",
+    "kb": 105,
+    "server": "cloudflare"
+   },
+   {
+    "path": "/vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/",
+    "status": 200,
+    "min": 34,
+    "med": 38,
+    "max": 124,
+    "cf": "DYNAMIC",
+    "cc": "public, max-age=0, must-revalidate",
+    "enc": "br",
+    "kb": 96,
+    "server": "cloudflare"
+   },
+   {
+    "path": "/vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/",
+    "status": 200,
+    "min": 43,
+    "med": 47,
+    "max": 64,
+    "cf": "DYNAMIC",
+    "cc": "public, max-age=0, must-revalidate",
+    "enc": "br",
+    "kb": 101,
+    "server": "cloudflare"
+   }
+  ],
+  "assets": [
+   {
+    "path": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z2dy8fv.webp",
+    "status": 200,
+    "ms": 65,
+    "cf": "REVALIDATED",
+    "cc": "public, max-age=14400, must-revalidate",
+    "enc": "",
+    "age": "",
+    "kb": 101
+   },
+   {
+    "path": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z1txAL9.webp",
+    "status": 200,
+    "ms": 61,
+    "cf": "REVALIDATED",
+    "cc": "public, max-age=14400, must-revalidate",
+    "enc": "",
+    "age": "",
+    "kb": 60
+   },
+   {
+    "path": "/js/em-site.js",
+    "status": 200,
+    "ms": 17,
+    "cf": "REVALIDATED",
+    "cc": "public, max-age=14400, must-revalidate",
+    "enc": "br",
+    "age": "",
+    "kb": 6
+   }
+  ]
+ },
+ "culprits": [],
+ "issues": [
+  {
+   "sev": "WARN",
+   "code": "srv-asset-short-cache",
+   "page": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z2dy8fv.webp",
+   "msg": "cache-control: «public, max-age=14400, must-revalidate» (файл с хешем в имени можно кэшировать на год)"
+  },
+  {
+   "sev": "INFO",
+   "code": "srv-asset-not-hit",
+   "page": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z2dy8fv.webp",
+   "msg": "cf-cache-status: REVALIDATED при повторном запросе"
+  },
+  {
+   "sev": "WARN",
+   "code": "srv-asset-short-cache",
+   "page": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z1txAL9.webp",
+   "msg": "cache-control: «public, max-age=14400, must-revalidate» (файл с хешем в имени можно кэшировать на год)"
+  },
+  {
+   "sev": "INFO",
+   "code": "srv-asset-not-hit",
+   "page": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z1txAL9.webp",
+   "msg": "cf-cache-status: REVALIDATED при повторном запросе"
+  },
+  {
+   "sev": "INFO",
+   "code": "srv-asset-not-hit",
+   "page": "/js/em-site.js",
+   "msg": "cf-cache-status: REVALIDATED при повторном запросе"
+  }
+ ],
+ "psi": [
+  {
+   "path": "/vykonani-roboty/",
+   "strategy": "lab-mobile",
+   "n": 3,
+   "scores": [
+    89,
+    96,
+    95
+   ],
+   "scoreMedian": 95,
+   "scoreMin": 89,
+   "scoreMax": 96,
+   "spread": 7,
+   "lcpMedianMs": 1842,
+   "fcpMedianMs": 1135,
+   "tbtMedianMs": 220,
+   "ttfbMedianMs": 68,
+   "renderDelayMedianMs": 24,
+   "cacheSuspects": 0,
+   "errors": 0,
+   "typical": {
+    "bust": false,
+    "crux": null,
+    "score": 95,
+    "FCP": "1.0 s",
+    "LCP": "2.2 s",
+    "TBT": "210 ms",
+    "CLS": "0.015",
+    "SI": "1.4 s",
+    "totalWeight": "Total size was 850 KiB",
+    "fcpMs": 1044,
+    "lcpMs": 2216,
+    "tbtMs": 212,
+    "cls": 0.014847642840731617,
+    "siMs": 1410,
+    "ttfbMs": 68,
+    "domElements": 639,
+    "requests": 24,
+    "fetchedAt": "2026-10-30T22:29:12.515Z",
+    "lcpElement": "div#em-works-grid > a.em-work-card > div.em-work-card-photo > img | <img src=\"https://elektroschit.com.ua/_astro/shuz-elektrozasuvka-220v-indykatsiia-po…\" srcset=\"/_astro/shuz-elektrozasuvka-220v-indykatsiia-",
+    "lcpPhases": [
+     {
+      "label": "Time to first byte",
+      "ms": 80
+     },
+     {
+      "label": "Resource load delay",
+      "ms": 11
+     },
+     {
+      "label": "Resource load duration",
+      "ms": 53
+     },
+     {
+      "label": "Element render delay",
+      "ms": 24
+     }
+    ],
+    "renderDelayMs": 24,
+    "mainThreadTop": [
+     {
+      "group": "Script Evaluation",
+      "ms": 748
+     },
+     {
+      "group": "Style & Layout",
+      "ms": 201
+     },
+     {
+      "group": "Other",
+      "ms": 183
+     },
+     {
+      "group": "Script Parsing & Compilation",
+      "ms": 91
+     },
+     {
+      "group": "Parse HTML & CSS",
+      "ms": 38
+     }
+    ],
+    "thirdParties": [],
+    "topJsByTime": [
+     {
+      "url": "/vykonani-roboty/",
+      "ms": 336
+     },
+     {
+      "url": "/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ddb81be2beb28",
+      "ms": 315
+     },
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1h1",
+      "ms": 266
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 165
+     },
+     {
+      "url": "Unattributable",
+      "ms": 145
+     }
+    ],
+    "longTasks": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1h1",
+      "ms": 260
+     },
+     {
+      "url": "/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ddb81be2beb28",
+      "ms": 157
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 88
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 65
+     },
+     {
+      "url": "/vykonani-roboty/",
+      "ms": 56
+     }
+    ],
+    "unusedJs": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1h1",
+      "wastedKiB": 76
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "wastedKiB": 64
+     }
+    ],
+    "unusedCss": [],
+    "byType": [
+     {
+      "type": "image",
+      "req": 7,
+      "kib": 415
+     },
+     {
+      "type": "script",
+      "req": 7,
+      "kib": 343
+     },
+     {
+      "type": "third-party",
+      "req": 5,
+      "kib": 323
+     },
+     {
+      "type": "font",
+      "req": 4,
+      "kib": 64
+     },
+     {
+      "type": "document",
+      "req": 1,
+      "kib": 24
+     },
+     {
+      "type": "other",
+      "req": 4,
+      "kib": 2
+     },
+     {
+      "type": "stylesheet",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "media",
+      "req": 0,
+      "kib": 0
+     }
+    ],
+    "imageSavingsTotal": "Est savings of 48 KiB",
+    "imageCount": 2,
+    "topImages": [
+     {
+      "url": "/_astro/shafa-indykatsii-pozhezhohasinnia-lytsiova-storona-kyiv-2026-05-01.C-1yqVoH_1Ggxhb.webp",
+      "sizeKiB": 113,
+      "saveKiB": 34
+     },
+     {
+      "url": "/_astro/shafa-shmu-dymovydalennia-5-5kvt-litseva-panel-kyiv-2026-08-01.DlxJdK84_ZCO7SS.webp",
+      "sizeKiB": 92,
+      "saveKiB": 14
+     }
+    ],
+    "renderBlocking": null,
+    "renderBlockingUrls": [],
+    "lcpDiscoveryScore": 0,
+    "otherIssues": [
+     "max-potential-fid — 260 ms",
+     "interactive — 5.1 s",
+     "cache-insight — Est savings of 19 KiB",
+     "network-dependency-tree-insight"
+    ]
+   }
+  },
+  {
+   "path": "/vykonani-roboty/hrshch-400a-skladskyi-kompleks/",
+   "strategy": "lab-mobile",
+   "n": 3,
+   "scores": [
+    96,
+    87,
+    95
+   ],
+   "scoreMedian": 95,
+   "scoreMin": 87,
+   "scoreMax": 96,
+   "spread": 9,
+   "lcpMedianMs": 1702,
+   "fcpMedianMs": 1049,
+   "tbtMedianMs": 244,
+   "ttfbMedianMs": 73,
+   "renderDelayMedianMs": 39,
+   "cacheSuspects": 0,
+   "errors": 0,
+   "typical": {
+    "bust": false,
+    "crux": null,
+    "score": 95,
+    "FCP": "1.0 s",
+    "LCP": "1.7 s",
+    "TBT": "240 ms",
+    "CLS": "0.001",
+    "SI": "1.2 s",
+    "totalWeight": "Total size was 705 KiB",
+    "fcpMs": 1042,
+    "lcpMs": 1700,
+    "tbtMs": 244,
+    "cls": 0.000853420673855603,
+    "siMs": 1209,
+    "ttfbMs": 56,
+    "domElements": 347,
+    "requests": 33,
+    "fetchedAt": "2026-10-30T22:29:24.438Z",
+    "lcpElement": "body > div.em-work-photos > div#em-work-main > img.em-work-main-img | <img src=\"/_astro/hrshch-400a-skladskyi-kompleks-zovnishniy-kyiv-2026-07-01.1mAHVQq0…\" srcset=\"/_astro/hrshch-400a-skladskyi-kompleks-zovnis",
+    "lcpPhases": [
+     {
+      "label": "Time to first byte",
+      "ms": 64
+     },
+     {
+      "label": "Resource load delay",
+      "ms": 10
+     },
+     {
+      "label": "Resource load duration",
+      "ms": 35
+     },
+     {
+      "label": "Element render delay",
+      "ms": 39
+     }
+    ],
+    "renderDelayMs": 39,
+    "mainThreadTop": [
+     {
+      "group": "Script Evaluation",
+      "ms": 791
+     },
+     {
+      "group": "Other",
+      "ms": 231
+     },
+     {
+      "group": "Style & Layout",
+      "ms": 189
+     },
+     {
+      "group": "Script Parsing & Compilation",
+      "ms": 100
+     },
+     {
+      "group": "Rendering",
+      "ms": 35
+     }
+    ],
+    "thirdParties": [],
+    "topJsByTime": [
+     {
+      "url": "/vykonani-roboty/hrshch-400a-skladskyi-kompleks/",
+      "ms": 353
+     },
+     {
+      "url": "/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ddbcc1abd8183",
+      "ms": 312
+     },
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "ms": 294
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 183
+     },
+     {
+      "url": "Unattributable",
+      "ms": 160
+     }
+    ],
+    "longTasks": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "ms": 288
+     },
+     {
+      "url": "/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ddbcc1abd8183",
+      "ms": 155
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 99
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 73
+     },
+     {
+      "url": "/vykonani-roboty/hrshch-400a-skladskyi-kompleks/",
+      "ms": 69
+     }
+    ],
+    "unusedJs": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "wastedKiB": 75
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "wastedKiB": 63
+     }
+    ],
+    "unusedCss": [],
+    "byType": [
+     {
+      "type": "script",
+      "req": 8,
+      "kib": 345
+     },
+     {
+      "type": "third-party",
+      "req": 5,
+      "kib": 323
+     },
+     {
+      "type": "image",
+      "req": 15,
+      "kib": 269
+     },
+     {
+      "type": "font",
+      "req": 4,
+      "kib": 64
+     },
+     {
+      "type": "document",
+      "req": 1,
+      "kib": 22
+     },
+     {
+      "type": "other",
+      "req": 4,
+      "kib": 2
+     },
+     {
+      "type": "stylesheet",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "media",
+      "req": 0,
+      "kib": 0
+     }
+    ],
+    "imageSavingsTotal": "Est savings of 43 KiB",
+    "imageCount": 7,
+    "topImages": [
+     {
+      "url": "/_astro/hrshch-400a-skladskyi-kompleks-vykhidni-avtomaty-bok-kyiv-2026-07-06.DXLHBZVQ_Z1LFa3D.webp",
+      "sizeKiB": 15,
+      "saveKiB": 9
+     },
+     {
+      "url": "/_astro/hrshch-400a-skladskyi-kompleks-vidkrytyi-nyzhnii-kyiv-2026-07-03.B6ptr0vJ_FeQYw.webp",
+      "sizeKiB": 15,
+      "saveKiB": 8
+     },
+     {
+      "url": "/_astro/hrshch-400a-skladskyi-kompleks-shyny-transformatory-strumu-kyiv-2026-07-05.D6nUcllE_2o0aJA.webp",
+      "sizeKiB": 13,
+      "saveKiB": 6
+     },
+     {
+      "url": "/_astro/hrshch-400a-skladskyi-kompleks-vykhidni-avtomaty-front-kyiv-2026-07-07.B1ZWBEfZ_Z1a2pUH.webp",
+      "sizeKiB": 13,
+      "saveKiB": 6
+     },
+     {
+      "url": "/_astro/hrshch-400a-skladskyi-kompleks-klemnyk-nik-kyiv-2026-07-10.joGMtBQR_1WGev0.webp",
+      "sizeKiB": 12,
+      "saveKiB": 5
+     }
+    ],
+    "renderBlocking": null,
+    "renderBlockingUrls": [],
+    "lcpDiscoveryScore": 1,
+    "otherIssues": [
+     "max-potential-fid — 290 ms",
+     "interactive — 4.8 s",
+     "cache-insight — Est savings of 19 KiB",
+     "network-dependency-tree-insight"
+    ]
+   }
+  },
+  {
+   "path": "/vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/",
+   "strategy": "lab-mobile",
+   "n": 3,
+   "scores": [
+    96,
+    90,
+    95
+   ],
+   "scoreMedian": 95,
+   "scoreMin": 90,
+   "scoreMax": 96,
+   "spread": 6,
+   "lcpMedianMs": 1700,
+   "fcpMedianMs": 1046,
+   "tbtMedianMs": 230,
+   "ttfbMedianMs": 70,
+   "renderDelayMedianMs": 39,
+   "cacheSuspects": 0,
+   "errors": 0,
+   "typical": {
+    "bust": false,
+    "crux": null,
+    "score": 95,
+    "FCP": "1.0 s",
+    "LCP": "1.3 s",
+    "TBT": "260 ms",
+    "CLS": "0.007",
+    "SI": "1.4 s",
+    "totalWeight": "Total size was 839 KiB",
+    "fcpMs": 1046,
+    "lcpMs": 1270,
+    "tbtMs": 262,
+    "cls": 0.0068733985765647414,
+    "siMs": 1444,
+    "ttfbMs": 70,
+    "domElements": 312,
+    "requests": 27,
+    "fetchedAt": "2026-10-30T22:29:36.355Z",
+    "lcpElement": "body > div.em-work-photos > div#em-work-main > img.em-work-main-img | <img src=\"https://elektroschit.com.ua/_astro/post-upravlinnia-osvitlenniiam-16-kanal…\" srcset=\"/_astro/post-upravlinnia-osvitlenniiam-16-kan",
+    "lcpPhases": [
+     {
+      "label": "Time to first byte",
+      "ms": 82
+     },
+     {
+      "label": "Resource load delay",
+      "ms": 10
+     },
+     {
+      "label": "Resource load duration",
+      "ms": 33
+     },
+     {
+      "label": "Element render delay",
+      "ms": 39
+     }
+    ],
+    "renderDelayMs": 39,
+    "mainThreadTop": [
+     {
+      "group": "Script Evaluation",
+      "ms": 796
+     },
+     {
+      "group": "Other",
+      "ms": 193
+     },
+     {
+      "group": "Style & Layout",
+      "ms": 188
+     },
+     {
+      "group": "Script Parsing & Compilation",
+      "ms": 97
+     },
+     {
+      "group": "Parse HTML & CSS",
+      "ms": 30
+     }
+    ],
+    "thirdParties": [],
+    "topJsByTime": [
+     {
+      "url": "/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ddc169acf5ae1",
+      "ms": 311
+     },
+     {
+      "url": "/vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/",
+      "ms": 310
+     },
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6at0h2",
+      "ms": 294
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 202
+     },
+     {
+      "url": "Unattributable",
+      "ms": 148
+     }
+    ],
+    "longTasks": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6at0h2",
+      "ms": 288
+     },
+     {
+      "url": "/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ddc169acf5ae1",
+      "ms": 154
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 106
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 85
+     },
+     {
+      "url": "/vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/",
+      "ms": 62
+     }
+    ],
+    "unusedJs": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6at0h2",
+      "wastedKiB": 75
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "wastedKiB": 63
+     }
+    ],
+    "unusedCss": [],
+    "byType": [
+     {
+      "type": "image",
+      "req": 9,
+      "kib": 406
+     },
+     {
+      "type": "script",
+      "req": 8,
+      "kib": 343
+     },
+     {
+      "type": "third-party",
+      "req": 5,
+      "kib": 323
+     },
+     {
+      "type": "font",
+      "req": 4,
+      "kib": 64
+     },
+     {
+      "type": "document",
+      "req": 1,
+      "kib": 21
+     },
+     {
+      "type": "other",
+      "req": 4,
+      "kib": 2
+     },
+     {
+      "type": "stylesheet",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "media",
+      "req": 0,
+      "kib": 0
+     }
+    ],
+    "imageSavingsTotal": "Est savings of 40 KiB",
+    "imageCount": 2,
+    "topImages": [
+     {
+      "url": "/_astro/shafa-indykatsii-pozhezhohasinnia-lytsiova-storona-kyiv-2026-05-01.C-1yqVoH_1Ggxhb.webp",
+      "sizeKiB": 113,
+      "saveKiB": 35
+     },
+     {
+      "url": "/_astro/shcho-skladskyi-kompleks-3-zony-fasad-kyiv-2026-07-01.BSaGWEcu_Z208Xe0.webp",
+      "sizeKiB": 84,
+      "saveKiB": 5
+     }
+    ],
+    "renderBlocking": null,
+    "renderBlockingUrls": [],
+    "lcpDiscoveryScore": 1,
+    "otherIssues": [
+     "max-potential-fid — 290 ms",
+     "interactive — 5.2 s",
+     "cache-insight — Est savings of 17 KiB",
+     "network-dependency-tree-insight"
+    ]
+   }
+  },
+  {
+   "path": "/vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/",
+   "strategy": "lab-mobile",
+   "n": 3,
+   "scores": [
+    79,
+    95,
+    95
+   ],
+   "scoreMedian": 95,
+   "scoreMin": 79,
+   "scoreMax": 95,
+   "spread": 16,
+   "lcpMedianMs": 2008,
+   "fcpMedianMs": 1077,
+   "tbtMedianMs": 232,
+   "ttfbMedianMs": 73,
+   "renderDelayMedianMs": 37,
+   "cacheSuspects": 0,
+   "errors": 0,
+   "typical": {
+    "bust": false,
+    "crux": null,
+    "score": 95,
+    "FCP": "1.0 s",
+    "LCP": "2.0 s",
+    "TBT": "230 ms",
+    "CLS": "0",
+    "SI": "1.4 s",
+    "totalWeight": "Total size was 792 KiB",
+    "fcpMs": 1036,
+    "lcpMs": 2008,
+    "tbtMs": 227,
+    "cls": 0.0003563406115744156,
+    "siMs": 1443,
+    "ttfbMs": 61,
+    "domElements": 327,
+    "requests": 28,
+    "fetchedAt": "2026-10-30T22:29:00.539Z",
+    "lcpElement": "body > div.em-work-photos > div#em-work-main > img.em-work-main-img | <img src=\"https://elektroschit.com.ua/_astro/shafa-keruvannia-ahro-ventyliatory-shak…\" srcset=\"/_astro/shafa-keruvannia-ahro-ventyliatory-sh",
+    "lcpPhases": [
+     {
+      "label": "Time to first byte",
+      "ms": 67
+     },
+     {
+      "label": "Resource load delay",
+      "ms": 11
+     },
+     {
+      "label": "Resource load duration",
+      "ms": 41
+     },
+     {
+      "label": "Element render delay",
+      "ms": 37
+     }
+    ],
+    "renderDelayMs": 37,
+    "mainThreadTop": [
+     {
+      "group": "Script Evaluation",
+      "ms": 756
+     },
+     {
+      "group": "Style & Layout",
+      "ms": 222
+     },
+     {
+      "group": "Other",
+      "ms": 194
+     },
+     {
+      "group": "Script Parsing & Compilation",
+      "ms": 93
+     },
+     {
+      "group": "Parse HTML & CSS",
+      "ms": 30
+     }
+    ],
+    "thirdParties": [],
+    "topJsByTime": [
+     {
+      "url": "/vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/",
+      "ms": 347
+     },
+     {
+      "url": "/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ddb36cde2cf1b",
+      "ms": 301
+     },
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1h1",
+      "ms": 294
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 175
+     },
+     {
+      "url": "Unattributable",
+      "ms": 140
+     }
+    ],
+    "longTasks": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1h1",
+      "ms": 286
+     },
+     {
+      "url": "/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a52ddb36cde2cf1b",
+      "ms": 148
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 88
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 72
+     },
+     {
+      "url": "/vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/",
+      "ms": 69
+     }
+    ],
+    "unusedJs": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1h1",
+      "wastedKiB": 75
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "wastedKiB": 63
+     }
+    ],
+    "unusedCss": [],
+    "byType": [
+     {
+      "type": "image",
+      "req": 10,
+      "kib": 359
+     },
+     {
+      "type": "script",
+      "req": 8,
+      "kib": 343
+     },
+     {
+      "type": "third-party",
+      "req": 5,
+      "kib": 323
+     },
+     {
+      "type": "font",
+      "req": 4,
+      "kib": 64
+     },
+     {
+      "type": "document",
+      "req": 1,
+      "kib": 22
+     },
+     {
+      "type": "other",
+      "req": 4,
+      "kib": 2
+     },
+     {
+      "type": "stylesheet",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "media",
+      "req": 0,
+      "kib": 0
+     }
+    ],
+    "imageSavingsTotal": "Est savings of 78 KiB",
+    "imageCount": 6,
+    "topImages": [
+     {
+      "url": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z2dy8fv.webp",
+      "sizeKiB": 101,
+      "saveKiB": 45
+     },
+     {
+      "url": "/_astro/shafa-keruvannia-ahro-ventyliatory-shakhty-dverni-indykatsia-2-kyiv-2022-09-06.qDjhXM7K_Z2qKSzk.webp",
+      "sizeKiB": 15,
+      "saveKiB": 8
+     },
+     {
+      "url": "/_astro/shafa-keruvannia-ahro-ventyliatory-shakhty-vnutrishniy-montazh-kyiv-2022-09-03.BVSnKzjC_2tUPXO.webp",
+      "sizeKiB": 15,
+      "saveKiB": 8
+     },
+     {
+      "url": "/_astro/shafa-keruvannia-ahro-ventyliatory-shakhty-zahalnyi-vykrytyi-kyiv-2022-09-02.DqaBR7gS_Z2gU2bM.webp",
+      "sizeKiB": 14,
+      "saveKiB": 7
+     },
+     {
+      "url": "/_astro/shafa-keruvannia-ahro-ventyliatory-shakhty-kontaktory-automaty-kyiv-2022-09-04.B0DKQ2-x_RWEPS.webp",
+      "sizeKiB": 12,
+      "saveKiB": 5
+     }
+    ],
+    "renderBlocking": null,
+    "renderBlockingUrls": [],
+    "lcpDiscoveryScore": 1,
+    "otherIssues": [
+     "max-potential-fid — 290 ms",
+     "interactive — 5.1 s",
+     "cache-insight — Est savings of 17 KiB",
+     "network-dependency-tree-insight"
+    ]
+   }
+  }
+ ]
+}
