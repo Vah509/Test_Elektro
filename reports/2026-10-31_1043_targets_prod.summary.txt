@@ -1,0 +1,22 @@
+🔬 site-check | targets | prod
+🎯 Суббота, день: замер проблемных страниц (карточки работ, каталог, /pro-nas/, продукция)
+🕒 2026-10-31 10:43 UTC (Киев 31.10.2026, 12:43)
+PSI: измерено 8/8
+🟢 90 mobile /vykonani-roboty/ · LCP 3,7 с · TBT 63
+🟢 90 mobile /vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/ · LCP 3,3 с · TBT 154
+🟢 91 mobile /pro-nas/ · LCP 1,0 с · TBT 371
+🟢 91 mobile /vykonani-roboty/hrshch-400a-skladskyi-kompleks/ · LCP 2,1 с · TBT 231
+🟢 97 mobile /vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/ · LCP 2,1 с · TBT 115
+🟢 98 mobile /posluhy-ta-produktsiia/ · LCP 1,0 с · TBT 165
+🟢 98 mobile /vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/ · LCP 2,0 с · TBT 86
+🟢 100 mobile / · LCP 1,0 с · TBT 73
+🔻 Регрессии:
+• /pro-nas/ mobile: 98 → 91, LCP 1,0 с → 1,0 с (было 2026-10-31)
+• /vykonani-roboty/ mobile: 98 → 90, LCP 2,4 с → 3,7 с (было 2026-10-31)
+• /vykonani-roboty/hrshch-400a-skladskyi-kompleks/ mobile: 99 → 91, LCP 1,7 с → 2,1 с (было 2026-10-31)
+• /vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/ mobile: 97 → 90, LCP 2,4 с → 3,3 с (было 2026-10-31)
+Топ причин:
+1. /vykonani-roboty/ (90): LCP-картинка не оптимизирована для раннего обнаружения (fetchpriority/preload)
+2. /pro-nas/ (91): 1 блокирующих ресурсов: /cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+3. /vykonani-roboty/hrshch-400a-skladskyi-kompleks/ (91): TBT 359 мс — главный поток: Script Evaluation 542 мс; сторонний «Google Tag Manager» (блокировка 0 мс); JS /gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1 400 мс
+Сервер /: ответ 45/57/258 мс, cf-cache DYNAMIC, сжатие br

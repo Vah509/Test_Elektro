@@ -18,5 +18,10 @@
   "date": "2026-10-31T10:37:00.311Z",
   "prefix": "reports/2026-10-31_1030_standard_prod",
   "ok": true
+ },
+ "sat-targets": {
+  "date": "2026-10-31T10:47:57.764Z",
+  "prefix": "reports/2026-10-31_1043_targets_prod",
+  "ok": true
  }
 }

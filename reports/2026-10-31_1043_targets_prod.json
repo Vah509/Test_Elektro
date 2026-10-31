@@ -1,0 +1,1978 @@
+{
+ "snapshot": {
+  "date": "2026-10-31T10:43:45.685Z",
+  "base": "https://elektroschit.com.ua",
+  "label": "prod",
+  "mode": "targets",
+  "jobId": "sat-targets",
+  "pages": {
+   "/|mobile": {
+    "score": 100,
+    "spread": 4,
+    "lcpMs": 971,
+    "fcpMs": 971,
+    "tbtMs": 73
+   },
+   "/posluhy-ta-produktsiia/|mobile": {
+    "score": 98,
+    "spread": 2,
+    "lcpMs": 959,
+    "fcpMs": 959,
+    "tbtMs": 165
+   },
+   "/pro-nas/|mobile": {
+    "score": 91,
+    "spread": 6,
+    "lcpMs": 977,
+    "fcpMs": 977,
+    "tbtMs": 371
+   },
+   "/vykonani-roboty/|mobile": {
+    "score": 90,
+    "spread": 14,
+    "lcpMs": 3659,
+    "fcpMs": 934,
+    "tbtMs": 63
+   },
+   "/vykonani-roboty/hrshch-400a-skladskyi-kompleks/|mobile": {
+    "score": 91,
+    "spread": 7,
+    "lcpMs": 2114,
+    "fcpMs": 928,
+    "tbtMs": 231
+   },
+   "/vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/|mobile": {
+    "score": 97,
+    "spread": 8,
+    "lcpMs": 2127,
+    "fcpMs": 922,
+    "tbtMs": 115
+   },
+   "/vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/|mobile": {
+    "score": 90,
+    "spread": 15,
+    "lcpMs": 3301,
+    "fcpMs": 944,
+    "tbtMs": 154
+   },
+   "/vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/|mobile": {
+    "score": 98,
+    "spread": 19,
+    "lcpMs": 1951,
+    "fcpMs": 933,
+    "tbtMs": 86
+   }
+  },
+  "html": {}
+ },
+ "goal": "Суббота, день: замер проблемных страниц (карточки работ, каталог, /pro-nas/, продукция)",
+ "jobId": "sat-targets",
+ "mode": "targets",
+ "runs": 3,
+ "parallel": 2,
+ "device": "mobile",
+ "counts": {
+  "ERR": 0,
+  "WARN": 2,
+  "INFO": 3
+ },
+ "stats": {},
+ "server": {
+  "pages": [
+   {
+    "path": "/",
+    "status": 200,
+    "min": 45,
+    "med": 57,
+    "max": 258,
+    "cf": "DYNAMIC",
+    "cc": "public, max-age=0, must-revalidate",
+    "enc": "br",
+    "kb": 87,
+    "server": "cloudflare"
+   },
+   {
+    "path": "/vykonani-roboty/",
+    "status": 200,
+    "min": 30,
+    "med": 46,
+    "max": 70,
+    "cf": "DYNAMIC",
+    "cc": "public, max-age=0, must-revalidate",
+    "enc": "br",
+    "kb": 132,
+    "server": "cloudflare"
+   },
+   {
+    "path": "/vykonani-roboty/hrshch-400a-skladskyi-kompleks/",
+    "status": 200,
+    "min": 27,
+    "med": 43,
+    "max": 64,
+    "cf": "DYNAMIC",
+    "cc": "public, max-age=0, must-revalidate",
+    "enc": "br",
+    "kb": 105,
+    "server": "cloudflare"
+   },
+   {
+    "path": "/vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/",
+    "status": 200,
+    "min": 27,
+    "med": 48,
+    "max": 61,
+    "cf": "DYNAMIC",
+    "cc": "public, max-age=0, must-revalidate",
+    "enc": "br",
+    "kb": 96,
+    "server": "cloudflare"
+   }
+  ],
+  "assets": [
+   {
+    "path": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z2dy8fv.webp",
+    "status": 200,
+    "ms": 59,
+    "cf": "REVALIDATED",
+    "cc": "public, max-age=14400, must-revalidate",
+    "enc": "",
+    "age": "",
+    "kb": 101
+   },
+   {
+    "path": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z1txAL9.webp",
+    "status": 200,
+    "ms": 43,
+    "cf": "REVALIDATED",
+    "cc": "public, max-age=14400, must-revalidate",
+    "enc": "",
+    "age": "",
+    "kb": 60
+   },
+   {
+    "path": "/js/em-site.js",
+    "status": 200,
+    "ms": 40,
+    "cf": "REVALIDATED",
+    "cc": "public, max-age=14400, must-revalidate",
+    "enc": "br",
+    "age": "",
+    "kb": 6
+   }
+  ]
+ },
+ "culprits": [
+  {
+   "path": "/vykonani-roboty/",
+   "strategy": "mobile",
+   "score": 90,
+   "reasons": [
+    "LCP-картинка не оптимизирована для раннего обнаружения (fetchpriority/preload)"
+   ]
+  },
+  {
+   "path": "/pro-nas/",
+   "strategy": "mobile",
+   "score": 91,
+   "reasons": [
+    "1 блокирующих ресурсов: /cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+    "TBT 371 мс — главный поток: Script Evaluation 410 мс; сторонний «Google Tag Manager» (блокировка 0 мс); JS /gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1 339 мс"
+   ]
+  },
+  {
+   "path": "/vykonani-roboty/hrshch-400a-skladskyi-kompleks/",
+   "strategy": "mobile",
+   "score": 91,
+   "reasons": [
+    "TBT 359 мс — главный поток: Script Evaluation 542 мс; сторонний «Google Tag Manager» (блокировка 0 мс); JS /gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1 400 мс"
+   ]
+  }
+ ],
+ "issues": [
+  {
+   "sev": "WARN",
+   "code": "srv-asset-short-cache",
+   "page": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z2dy8fv.webp",
+   "msg": "cache-control: «public, max-age=14400, must-revalidate» (файл с хешем в имени можно кэшировать на год)"
+  },
+  {
+   "sev": "INFO",
+   "code": "srv-asset-not-hit",
+   "page": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z2dy8fv.webp",
+   "msg": "cf-cache-status: REVALIDATED при повторном запросе"
+  },
+  {
+   "sev": "WARN",
+   "code": "srv-asset-short-cache",
+   "page": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z1txAL9.webp",
+   "msg": "cache-control: «public, max-age=14400, must-revalidate» (файл с хешем в имени можно кэшировать на год)"
+  },
+  {
+   "sev": "INFO",
+   "code": "srv-asset-not-hit",
+   "page": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z1txAL9.webp",
+   "msg": "cf-cache-status: REVALIDATED при повторном запросе"
+  },
+  {
+   "sev": "INFO",
+   "code": "srv-asset-not-hit",
+   "page": "/js/em-site.js",
+   "msg": "cf-cache-status: REVALIDATED при повторном запросе"
+  }
+ ],
+ "psi": [
+  {
+   "path": "/",
+   "strategy": "mobile",
+   "n": 3,
+   "scores": [
+    100,
+    96,
+    100
+   ],
+   "scoreMedian": 100,
+   "scoreMin": 96,
+   "scoreMax": 100,
+   "spread": 4,
+   "lcpMedianMs": 971,
+   "fcpMedianMs": 971,
+   "tbtMedianMs": 73,
+   "ttfbMedianMs": 3,
+   "renderDelayMedianMs": 224,
+   "cacheSuspects": 0,
+   "errors": 0,
+   "typical": {
+    "bust": false,
+    "crux": {
+     "page": null,
+     "origin": null
+    },
+    "score": 100,
+    "FCP": "0.9 s",
+    "LCP": "0.9 s",
+    "TBT": "30 ms",
+    "CLS": "0.001",
+    "SI": "0.9 s",
+    "totalWeight": "Total size was 853 KiB",
+    "fcpMs": 923,
+    "lcpMs": 923,
+    "tbtMs": 28,
+    "cls": 0.0008809301473891874,
+    "siMs": 923,
+    "ttfbMs": 3,
+    "domElements": 355,
+    "requests": 26,
+    "fetchedAt": "2026-10-31T10:43:55.095Z",
+    "lcpElement": "div.em-hero-product > div.em-hero-product-inner > div.em-hero-product-text > p.em-hero-product-lead | <p class=\"em-hero-product-lead\">",
+    "lcpPhases": [
+     {
+      "label": "Time to first byte",
+      "ms": 3
+     },
+     {
+      "label": "Element render delay",
+      "ms": 224
+     }
+    ],
+    "renderDelayMs": 224,
+    "mainThreadTop": [
+     {
+      "group": "Script Evaluation",
+      "ms": 157
+     },
+     {
+      "group": "Script Parsing & Compilation",
+      "ms": 62
+     },
+     {
+      "group": "Other",
+      "ms": 47
+     },
+     {
+      "group": "Style & Layout",
+      "ms": 41
+     },
+     {
+      "group": "Rendering",
+      "ms": 11
+     }
+    ],
+    "thirdParties": [
+     {
+      "name": "Google Tag Manager",
+      "transferKiB": 307,
+      "blockingMs": 0,
+      "mainThreadMs": 157
+     },
+     {
+      "name": "Cloudflare",
+      "transferKiB": 10,
+      "blockingMs": 0,
+      "mainThreadMs": 5
+     },
+     {
+      "name": "ahrefs.com",
+      "transferKiB": 4,
+      "blockingMs": 0,
+      "mainThreadMs": 3
+     },
+     {
+      "name": "Google Analytics",
+      "transferKiB": 1,
+      "blockingMs": 0,
+      "mainThreadMs": 0
+     }
+    ],
+    "topJsByTime": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "ms": 110
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 88
+     },
+     {
+      "url": "/",
+      "ms": 66
+     }
+    ],
+    "longTasks": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "ms": 106
+     }
+    ],
+    "unusedJs": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "wastedKiB": 76
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "wastedKiB": 62
+     }
+    ],
+    "unusedCss": [],
+    "byType": [
+     {
+      "type": "image",
+      "req": 12,
+      "kib": 444
+     },
+     {
+      "type": "script",
+      "req": 6,
+      "kib": 324
+     },
+     {
+      "type": "third-party",
+      "req": 6,
+      "kib": 322
+     },
+     {
+      "type": "font",
+      "req": 4,
+      "kib": 64
+     },
+     {
+      "type": "document",
+      "req": 1,
+      "kib": 19
+     },
+     {
+      "type": "other",
+      "req": 3,
+      "kib": 2
+     },
+     {
+      "type": "stylesheet",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "media",
+      "req": 0,
+      "kib": 0
+     }
+    ],
+    "imageSavingsTotal": "Est savings of 149 KiB",
+    "imageCount": 9,
+    "topImages": [
+     {
+      "url": "/_astro/home-vyrobnytstvo-elektroshchytiv-kyiv-2026-06-c2.CY80stMS_3UwXM.webp",
+      "sizeKiB": 53,
+      "saveKiB": 35
+     },
+     {
+      "url": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z1txAL9.webp",
+      "sizeKiB": 60,
+      "saveKiB": 32
+     },
+     {
+      "url": "/_astro/home-vyrobnytstvo-elektroshchytiv-kyiv-2026-06-05.DopZS0vI_JziR5.webp",
+      "sizeKiB": 53,
+      "saveKiB": 25
+     },
+     {
+      "url": "/_astro/home-vyrobnytstvo-elektroshchytiv-kyiv-2026-06-03.Cvev2LX6_25Bg29.webp",
+      "sizeKiB": 44,
+      "saveKiB": 16
+     },
+     {
+      "url": "/_astro/home-vyrobnytstvo-elektroshchytiv-kyiv-2026-06-06.Y2J0iPLI_Z10SDYE.webp",
+      "sizeKiB": 27,
+      "saveKiB": 13
+     }
+    ],
+    "renderBlocking": null,
+    "renderBlockingUrls": [],
+    "lcpDiscoveryScore": null,
+    "otherIssues": [
+     "interactive — 4.7 s",
+     "cache-insight — Est savings of 7 KiB",
+     "legacy-javascript-insight — Est savings of 10 KiB",
+     "network-dependency-tree-insight"
+    ]
+   }
+  },
+  {
+   "path": "/posluhy-ta-produktsiia/",
+   "strategy": "mobile",
+   "n": 3,
+   "scores": [
+    98,
+    97,
+    99
+   ],
+   "scoreMedian": 98,
+   "scoreMin": 97,
+   "scoreMax": 99,
+   "spread": 2,
+   "lcpMedianMs": 959,
+   "fcpMedianMs": 959,
+   "tbtMedianMs": 165,
+   "ttfbMedianMs": 3,
+   "renderDelayMedianMs": 212,
+   "cacheSuspects": 0,
+   "errors": 0,
+   "typical": {
+    "bust": false,
+    "crux": {
+     "page": null,
+     "origin": null
+    },
+    "score": 98,
+    "FCP": "1.0 s",
+    "LCP": "1.0 s",
+    "TBT": "170 ms",
+    "CLS": "0",
+    "SI": "1.0 s",
+    "totalWeight": "Total size was 408 KiB",
+    "fcpMs": 959,
+    "lcpMs": 959,
+    "tbtMs": 165,
+    "cls": 0.00004165010464003188,
+    "siMs": 959,
+    "ttfbMs": 3,
+    "domElements": 269,
+    "requests": 14,
+    "fetchedAt": "2026-10-31T10:43:55.576Z",
+    "lcpElement": "body > div.em-hub-hero > div.em-hub-hero-inner > p.em-hub-hero-lead | <p class=\"em-hub-hero-lead\" data-astro-cid-kcryotnn=\"\">",
+    "lcpPhases": [
+     {
+      "label": "Time to first byte",
+      "ms": 3
+     },
+     {
+      "label": "Element render delay",
+      "ms": 276
+     }
+    ],
+    "renderDelayMs": 276,
+    "mainThreadTop": [
+     {
+      "group": "Script Evaluation",
+      "ms": 231
+     },
+     {
+      "group": "Script Parsing & Compilation",
+      "ms": 111
+     },
+     {
+      "group": "Style & Layout",
+      "ms": 85
+     },
+     {
+      "group": "Other",
+      "ms": 59
+     },
+     {
+      "group": "Rendering",
+      "ms": 12
+     }
+    ],
+    "thirdParties": [
+     {
+      "name": "Google Tag Manager",
+      "transferKiB": 306,
+      "blockingMs": 0,
+      "mainThreadMs": 254
+     },
+     {
+      "name": "Cloudflare",
+      "transferKiB": 10,
+      "blockingMs": 0,
+      "mainThreadMs": 6
+     },
+     {
+      "name": "ahrefs.com",
+      "transferKiB": 4,
+      "blockingMs": 0,
+      "mainThreadMs": 4
+     },
+     {
+      "name": "Google Analytics",
+      "transferKiB": 1,
+      "blockingMs": 0,
+      "mainThreadMs": 0
+     }
+    ],
+    "topJsByTime": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1h1",
+      "ms": 194
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 120
+     },
+     {
+      "url": "/posluhy-ta-produktsiia/",
+      "ms": 113
+     }
+    ],
+    "longTasks": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1h1",
+      "ms": 188
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 77
+     }
+    ],
+    "unusedJs": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1h1",
+      "wastedKiB": 76
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "wastedKiB": 62
+     }
+    ],
+    "unusedCss": [],
+    "byType": [
+     {
+      "type": "script",
+      "req": 6,
+      "kib": 324
+     },
+     {
+      "type": "third-party",
+      "req": 6,
+      "kib": 321
+     },
+     {
+      "type": "font",
+      "req": 4,
+      "kib": 64
+     },
+     {
+      "type": "document",
+      "req": 1,
+      "kib": 17
+     },
+     {
+      "type": "other",
+      "req": 3,
+      "kib": 2
+     },
+     {
+      "type": "stylesheet",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "image",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "media",
+      "req": 0,
+      "kib": 0
+     }
+    ],
+    "imageSavingsTotal": null,
+    "imageCount": 0,
+    "topImages": [],
+    "renderBlocking": "Est savings of 410 ms",
+    "renderBlockingUrls": [
+     "/js/em-site.js",
+     "/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ],
+    "lcpDiscoveryScore": null,
+    "otherIssues": [
+     "network-dependency-tree-insight",
+     "cache-insight — Est savings of 7 KiB",
+     "interactive — 4.1 s",
+     "legacy-javascript-insight — Est savings of 10 KiB",
+     "max-potential-fid — 190 ms"
+    ]
+   }
+  },
+  {
+   "path": "/pro-nas/",
+   "strategy": "mobile",
+   "n": 3,
+   "scores": [
+    91,
+    91,
+    97
+   ],
+   "scoreMedian": 91,
+   "scoreMin": 91,
+   "scoreMax": 97,
+   "spread": 6,
+   "lcpMedianMs": 977,
+   "fcpMedianMs": 977,
+   "tbtMedianMs": 371,
+   "ttfbMedianMs": 3,
+   "renderDelayMedianMs": 242,
+   "cacheSuspects": 0,
+   "errors": 0,
+   "typical": {
+    "bust": false,
+    "crux": {
+     "page": null,
+     "origin": null
+    },
+    "score": 91,
+    "FCP": "1.0 s",
+    "LCP": "1.0 s",
+    "TBT": "370 ms",
+    "CLS": "0.049",
+    "SI": "1.0 s",
+    "totalWeight": "Total size was 408 KiB",
+    "fcpMs": 977,
+    "lcpMs": 977,
+    "tbtMs": 371,
+    "cls": 0.049290006901591486,
+    "siMs": 977,
+    "ttfbMs": 4,
+    "domElements": 321,
+    "requests": 14,
+    "fetchedAt": "2026-10-31T10:44:05.130Z",
+    "lcpElement": "div.em-hero-product > div.em-hero-product-inner > div.em-hero-product-text > p.em-hero-product-lead | <p class=\"em-hero-product-lead\">",
+    "lcpPhases": [
+     {
+      "label": "Time to first byte",
+      "ms": 4
+     },
+     {
+      "label": "Element render delay",
+      "ms": 299
+     }
+    ],
+    "renderDelayMs": 299,
+    "mainThreadTop": [
+     {
+      "group": "Script Evaluation",
+      "ms": 410
+     },
+     {
+      "group": "Script Parsing & Compilation",
+      "ms": 181
+     },
+     {
+      "group": "Style & Layout",
+      "ms": 124
+     },
+     {
+      "group": "Other",
+      "ms": 80
+     },
+     {
+      "group": "Rendering",
+      "ms": 33
+     }
+    ],
+    "thirdParties": [
+     {
+      "name": "Google Tag Manager",
+      "transferKiB": 306,
+      "blockingMs": 0,
+      "mainThreadMs": 446
+     },
+     {
+      "name": "Cloudflare",
+      "transferKiB": 10,
+      "blockingMs": 0,
+      "mainThreadMs": 10
+     },
+     {
+      "name": "ahrefs.com",
+      "transferKiB": 4,
+      "blockingMs": 0,
+      "mainThreadMs": 6
+     },
+     {
+      "name": "Google Analytics",
+      "transferKiB": 1,
+      "blockingMs": 0,
+      "mainThreadMs": 0
+     }
+    ],
+    "topJsByTime": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "ms": 339
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 203
+     },
+     {
+      "url": "/pro-nas/",
+      "ms": 181
+     },
+     {
+      "url": "Unattributable",
+      "ms": 68
+     }
+    ],
+    "longTasks": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "ms": 333
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 131
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 57
+     }
+    ],
+    "unusedJs": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "wastedKiB": 76
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "wastedKiB": 62
+     }
+    ],
+    "unusedCss": [],
+    "byType": [
+     {
+      "type": "script",
+      "req": 6,
+      "kib": 324
+     },
+     {
+      "type": "third-party",
+      "req": 6,
+      "kib": 321
+     },
+     {
+      "type": "font",
+      "req": 4,
+      "kib": 64
+     },
+     {
+      "type": "document",
+      "req": 1,
+      "kib": 17
+     },
+     {
+      "type": "other",
+      "req": 3,
+      "kib": 2
+     },
+     {
+      "type": "stylesheet",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "image",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "media",
+      "req": 0,
+      "kib": 0
+     }
+    ],
+    "imageSavingsTotal": null,
+    "imageCount": 0,
+    "topImages": [],
+    "renderBlocking": "Est savings of 100 ms",
+    "renderBlockingUrls": [
+     "/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ],
+    "lcpDiscoveryScore": null,
+    "otherIssues": [
+     "cache-insight — Est savings of 7 KiB",
+     "interactive — 4.3 s",
+     "network-dependency-tree-insight",
+     "max-potential-fid — 330 ms",
+     "legacy-javascript-insight — Est savings of 10 KiB"
+    ]
+   }
+  },
+  {
+   "path": "/vykonani-roboty/",
+   "strategy": "mobile",
+   "n": 3,
+   "scores": [
+    90,
+    85,
+    99
+   ],
+   "scoreMedian": 90,
+   "scoreMin": 85,
+   "scoreMax": 99,
+   "spread": 14,
+   "lcpMedianMs": 3659,
+   "fcpMedianMs": 934,
+   "tbtMedianMs": 63,
+   "ttfbMedianMs": 4,
+   "renderDelayMedianMs": 65,
+   "cacheSuspects": 0,
+   "errors": 0,
+   "typical": {
+    "bust": false,
+    "crux": {
+     "page": null,
+     "origin": null
+    },
+    "score": 90,
+    "FCP": "0.9 s",
+    "LCP": "3.7 s",
+    "TBT": "60 ms",
+    "CLS": "0.015",
+    "SI": "0.9 s",
+    "totalWeight": "Total size was 830 KiB",
+    "fcpMs": 931,
+    "lcpMs": 3659,
+    "tbtMs": 63,
+    "cls": 0.01473137195793064,
+    "siMs": 931,
+    "ttfbMs": 4,
+    "domElements": 637,
+    "requests": 21,
+    "fetchedAt": "2026-10-31T10:44:05.232Z",
+    "lcpElement": "div#em-works-grid > a.em-work-card > div.em-work-card-photo > img | <img src=\"https://elektroschit.com.ua/_astro/shuz-elektrozasuvka-220v-indykatsiia-po…\" srcset=\"/_astro/shuz-elektrozasuvka-220v-indykatsiia-",
+    "lcpPhases": [
+     {
+      "label": "Time to first byte",
+      "ms": 4
+     },
+     {
+      "label": "Resource load delay",
+      "ms": 188
+     },
+     {
+      "label": "Resource load duration",
+      "ms": 119
+     },
+     {
+      "label": "Element render delay",
+      "ms": 65
+     }
+    ],
+    "renderDelayMs": 65,
+    "mainThreadTop": [
+     {
+      "group": "Script Evaluation",
+      "ms": 224
+     },
+     {
+      "group": "Script Parsing & Compilation",
+      "ms": 99
+     },
+     {
+      "group": "Other",
+      "ms": 77
+     },
+     {
+      "group": "Style & Layout",
+      "ms": 41
+     },
+     {
+      "group": "Parse HTML & CSS",
+      "ms": 18
+     }
+    ],
+    "thirdParties": [
+     {
+      "name": "Google Tag Manager",
+      "transferKiB": 306,
+      "blockingMs": 0,
+      "mainThreadMs": 227
+     },
+     {
+      "name": "Cloudflare",
+      "transferKiB": 10,
+      "blockingMs": 0,
+      "mainThreadMs": 7
+     },
+     {
+      "name": "ahrefs.com",
+      "transferKiB": 4,
+      "blockingMs": 0,
+      "mainThreadMs": 4
+     },
+     {
+      "name": "Google Analytics",
+      "transferKiB": 1,
+      "blockingMs": 0,
+      "mainThreadMs": 0
+     }
+    ],
+    "topJsByTime": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6at0h2",
+      "ms": 152
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 136
+     },
+     {
+      "url": "/vykonani-roboty/",
+      "ms": 84
+     },
+     {
+      "url": "Unattributable",
+      "ms": 61
+     }
+    ],
+    "longTasks": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6at0h2",
+      "ms": 150
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 63
+     }
+    ],
+    "unusedJs": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6at0h2",
+      "wastedKiB": 75
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "wastedKiB": 62
+     }
+    ],
+    "unusedCss": [],
+    "byType": [
+     {
+      "type": "image",
+      "req": 7,
+      "kib": 416
+     },
+     {
+      "type": "script",
+      "req": 6,
+      "kib": 324
+     },
+     {
+      "type": "third-party",
+      "req": 6,
+      "kib": 321
+     },
+     {
+      "type": "font",
+      "req": 4,
+      "kib": 64
+     },
+     {
+      "type": "document",
+      "req": 1,
+      "kib": 23
+     },
+     {
+      "type": "other",
+      "req": 3,
+      "kib": 2
+     },
+     {
+      "type": "stylesheet",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "media",
+      "req": 0,
+      "kib": 0
+     }
+    ],
+    "imageSavingsTotal": "Est savings of 48 KiB",
+    "imageCount": 2,
+    "topImages": [
+     {
+      "url": "/_astro/shafa-indykatsii-pozhezhohasinnia-lytsiova-storona-kyiv-2026-05-01.C-1yqVoH_1Ggxhb.webp",
+      "sizeKiB": 113,
+      "saveKiB": 34
+     },
+     {
+      "url": "/_astro/shafa-shmu-dymovydalennia-5-5kvt-litseva-panel-kyiv-2026-08-01.DlxJdK84_ZCO7SS.webp",
+      "sizeKiB": 92,
+      "saveKiB": 14
+     }
+    ],
+    "renderBlocking": null,
+    "renderBlockingUrls": [],
+    "lcpDiscoveryScore": 0,
+    "otherIssues": [
+     "network-dependency-tree-insight",
+     "legacy-javascript-insight — Est savings of 10 KiB",
+     "cache-insight — Est savings of 7 KiB",
+     "max-potential-fid — 150 ms",
+     "interactive — 4.8 s"
+    ]
+   }
+  },
+  {
+   "path": "/vykonani-roboty/hrshch-400a-skladskyi-kompleks/",
+   "strategy": "mobile",
+   "n": 3,
+   "scores": [
+    88,
+    91,
+    95
+   ],
+   "scoreMedian": 91,
+   "scoreMin": 88,
+   "scoreMax": 95,
+   "spread": 7,
+   "lcpMedianMs": 2114,
+   "fcpMedianMs": 928,
+   "tbtMedianMs": 231,
+   "ttfbMedianMs": 3,
+   "renderDelayMedianMs": 117,
+   "cacheSuspects": 0,
+   "errors": 0,
+   "typical": {
+    "bust": false,
+    "crux": {
+     "page": null,
+     "origin": null
+    },
+    "score": 91,
+    "FCP": "0.9 s",
+    "LCP": "1.8 s",
+    "TBT": "360 ms",
+    "CLS": "0.001",
+    "SI": "0.9 s",
+    "totalWeight": "Total size was 687 KiB",
+    "fcpMs": 918,
+    "lcpMs": 1814,
+    "tbtMs": 359,
+    "cls": 0.0008546452108852408,
+    "siMs": 918,
+    "ttfbMs": 3,
+    "domElements": 345,
+    "requests": 31,
+    "fetchedAt": "2026-10-31T10:45:56.509Z",
+    "lcpElement": "body > div.em-work-photos > div#em-work-main > img.em-work-main-img | <img src=\"/_astro/hrshch-400a-skladskyi-kompleks-zovnishniy-kyiv-2026-07-01.1mAHVQq0…\" srcset=\"/_astro/hrshch-400a-skladskyi-kompleks-zovnis",
+    "lcpPhases": [
+     {
+      "label": "Time to first byte",
+      "ms": 3
+     },
+     {
+      "label": "Resource load delay",
+      "ms": 132
+     },
+     {
+      "label": "Resource load duration",
+      "ms": 88
+     },
+     {
+      "label": "Element render delay",
+      "ms": 146
+     }
+    ],
+    "renderDelayMs": 146,
+    "mainThreadTop": [
+     {
+      "group": "Script Evaluation",
+      "ms": 542
+     },
+     {
+      "group": "Script Parsing & Compilation",
+      "ms": 234
+     },
+     {
+      "group": "Other",
+      "ms": 137
+     },
+     {
+      "group": "Style & Layout",
+      "ms": 107
+     },
+     {
+      "group": "Rendering",
+      "ms": 39
+     }
+    ],
+    "thirdParties": [
+     {
+      "name": "Google Tag Manager",
+      "transferKiB": 307,
+      "blockingMs": 0,
+      "mainThreadMs": 558
+     },
+     {
+      "name": "Cloudflare",
+      "transferKiB": 10,
+      "blockingMs": 0,
+      "mainThreadMs": 13
+     },
+     {
+      "name": "ahrefs.com",
+      "transferKiB": 4,
+      "blockingMs": 0,
+      "mainThreadMs": 7
+     },
+     {
+      "name": "Google Analytics",
+      "transferKiB": 1,
+      "blockingMs": 0,
+      "mainThreadMs": 0
+     }
+    ],
+    "topJsByTime": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "ms": 400
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 306
+     },
+     {
+      "url": "/vykonani-roboty/hrshch-400a-skladskyi-kompleks/",
+      "ms": 199
+     },
+     {
+      "url": "Unattributable",
+      "ms": 111
+     }
+    ],
+    "longTasks": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "ms": 395
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 198
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 88
+     }
+    ],
+    "unusedJs": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "wastedKiB": 75
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "wastedKiB": 59
+     }
+    ],
+    "unusedCss": [],
+    "byType": [
+     {
+      "type": "script",
+      "req": 7,
+      "kib": 326
+     },
+     {
+      "type": "third-party",
+      "req": 7,
+      "kib": 321
+     },
+     {
+      "type": "image",
+      "req": 16,
+      "kib": 273
+     },
+     {
+      "type": "font",
+      "req": 4,
+      "kib": 64
+     },
+     {
+      "type": "document",
+      "req": 1,
+      "kib": 22
+     },
+     {
+      "type": "other",
+      "req": 3,
+      "kib": 2
+     },
+     {
+      "type": "stylesheet",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "media",
+      "req": 0,
+      "kib": 0
+     }
+    ],
+    "imageSavingsTotal": "Est savings of 43 KiB",
+    "imageCount": 7,
+    "topImages": [
+     {
+      "url": "/_astro/hrshch-400a-skladskyi-kompleks-vykhidni-avtomaty-bok-kyiv-2026-07-06.DXLHBZVQ_Z1LFa3D.webp",
+      "sizeKiB": 15,
+      "saveKiB": 9
+     },
+     {
+      "url": "/_astro/hrshch-400a-skladskyi-kompleks-vidkrytyi-nyzhnii-kyiv-2026-07-03.B6ptr0vJ_FeQYw.webp",
+      "sizeKiB": 15,
+      "saveKiB": 8
+     },
+     {
+      "url": "/_astro/hrshch-400a-skladskyi-kompleks-shyny-transformatory-strumu-kyiv-2026-07-05.D6nUcllE_2o0aJA.webp",
+      "sizeKiB": 13,
+      "saveKiB": 6
+     },
+     {
+      "url": "/_astro/hrshch-400a-skladskyi-kompleks-vykhidni-avtomaty-front-kyiv-2026-07-07.B1ZWBEfZ_Z1a2pUH.webp",
+      "sizeKiB": 13,
+      "saveKiB": 6
+     },
+     {
+      "url": "/_astro/hrshch-400a-skladskyi-kompleks-klemnyk-nik-kyiv-2026-07-10.joGMtBQR_1WGev0.webp",
+      "sizeKiB": 12,
+      "saveKiB": 5
+     }
+    ],
+    "renderBlocking": null,
+    "renderBlockingUrls": [],
+    "lcpDiscoveryScore": 1,
+    "otherIssues": [
+     "interactive — 5.0 s",
+     "cache-insight — Est savings of 7 KiB",
+     "max-potential-fid — 400 ms",
+     "network-dependency-tree-insight",
+     "legacy-javascript-insight — Est savings of 10 KiB",
+     "forced-reflow-insight"
+    ]
+   }
+  },
+  {
+   "path": "/vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/",
+   "strategy": "mobile",
+   "n": 3,
+   "scores": [
+    90,
+    98,
+    97
+   ],
+   "scoreMedian": 97,
+   "scoreMin": 90,
+   "scoreMax": 98,
+   "spread": 8,
+   "lcpMedianMs": 2127,
+   "fcpMedianMs": 922,
+   "tbtMedianMs": 115,
+   "ttfbMedianMs": 4,
+   "renderDelayMedianMs": 46,
+   "cacheSuspects": 0,
+   "errors": 0,
+   "typical": {
+    "bust": false,
+    "crux": {
+     "page": null,
+     "origin": null
+    },
+    "score": 97,
+    "FCP": "0.9 s",
+    "LCP": "2.1 s",
+    "TBT": "180 ms",
+    "CLS": "0.007",
+    "SI": "0.9 s",
+    "totalWeight": "Total size was 821 KiB",
+    "fcpMs": 921,
+    "lcpMs": 2127,
+    "tbtMs": 180,
+    "cls": 0.007045257057465026,
+    "siMs": 921,
+    "ttfbMs": 4,
+    "domElements": 310,
+    "requests": 24,
+    "fetchedAt": "2026-10-31T10:47:38.644Z",
+    "lcpElement": "body > div.em-work-photos > div#em-work-main > img.em-work-main-img | <img src=\"https://elektroschit.com.ua/_astro/post-upravlinnia-osvitlenniiam-16-kanal…\" srcset=\"/_astro/post-upravlinnia-osvitlenniiam-16-kan",
+    "lcpPhases": [
+     {
+      "label": "Time to first byte",
+      "ms": 4
+     },
+     {
+      "label": "Resource load delay",
+      "ms": 70
+     },
+     {
+      "label": "Resource load duration",
+      "ms": 92
+     },
+     {
+      "label": "Element render delay",
+      "ms": 97
+     }
+    ],
+    "renderDelayMs": 97,
+    "mainThreadTop": [
+     {
+      "group": "Script Evaluation",
+      "ms": 414
+     },
+     {
+      "group": "Style & Layout",
+      "ms": 149
+     },
+     {
+      "group": "Other",
+      "ms": 142
+     },
+     {
+      "group": "Script Parsing & Compilation",
+      "ms": 129
+     },
+     {
+      "group": "Rendering",
+      "ms": 32
+     }
+    ],
+    "thirdParties": [
+     {
+      "name": "Google Tag Manager",
+      "transferKiB": 306,
+      "blockingMs": 0,
+      "mainThreadMs": 371
+     },
+     {
+      "name": "Cloudflare",
+      "transferKiB": 10,
+      "blockingMs": 0,
+      "mainThreadMs": 18
+     },
+     {
+      "name": "ahrefs.com",
+      "transferKiB": 4,
+      "blockingMs": 0,
+      "mainThreadMs": 3
+     },
+     {
+      "name": "Google Analytics",
+      "transferKiB": 1,
+      "blockingMs": 0,
+      "mainThreadMs": 0
+     }
+    ],
+    "topJsByTime": [
+     {
+      "url": "/vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/",
+      "ms": 242
+     },
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "ms": 233
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 221
+     },
+     {
+      "url": "Unattributable",
+      "ms": 99
+     }
+    ],
+    "longTasks": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "ms": 220
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 113
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 80
+     },
+     {
+      "url": "/vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/",
+      "ms": 52
+     }
+    ],
+    "unusedJs": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "wastedKiB": 75
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "wastedKiB": 62
+     }
+    ],
+    "unusedCss": [],
+    "byType": [
+     {
+      "type": "image",
+      "req": 9,
+      "kib": 408
+     },
+     {
+      "type": "script",
+      "req": 7,
+      "kib": 326
+     },
+     {
+      "type": "third-party",
+      "req": 6,
+      "kib": 321
+     },
+     {
+      "type": "font",
+      "req": 4,
+      "kib": 64
+     },
+     {
+      "type": "document",
+      "req": 1,
+      "kib": 21
+     },
+     {
+      "type": "other",
+      "req": 3,
+      "kib": 2
+     },
+     {
+      "type": "stylesheet",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "media",
+      "req": 0,
+      "kib": 0
+     }
+    ],
+    "imageSavingsTotal": "Est savings of 40 KiB",
+    "imageCount": 2,
+    "topImages": [
+     {
+      "url": "/_astro/shafa-indykatsii-pozhezhohasinnia-lytsiova-storona-kyiv-2026-05-01.C-1yqVoH_1Ggxhb.webp",
+      "sizeKiB": 113,
+      "saveKiB": 35
+     },
+     {
+      "url": "/_astro/shcho-skladskyi-kompleks-3-zony-fasad-kyiv-2026-07-01.BSaGWEcu_Z208Xe0.webp",
+      "sizeKiB": 84,
+      "saveKiB": 6
+     }
+    ],
+    "renderBlocking": null,
+    "renderBlockingUrls": [],
+    "lcpDiscoveryScore": 1,
+    "otherIssues": [
+     "legacy-javascript-insight — Est savings of 10 KiB",
+     "network-dependency-tree-insight",
+     "cache-insight — Est savings of 7 KiB",
+     "max-potential-fid — 220 ms",
+     "interactive — 5.0 s"
+    ]
+   }
+  },
+  {
+   "path": "/vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/",
+   "strategy": "mobile",
+   "n": 3,
+   "scores": [
+    97,
+    90,
+    82
+   ],
+   "scoreMedian": 90,
+   "scoreMin": 82,
+   "scoreMax": 97,
+   "spread": 15,
+   "lcpMedianMs": 3301,
+   "fcpMedianMs": 944,
+   "tbtMedianMs": 154,
+   "ttfbMedianMs": 3,
+   "renderDelayMedianMs": 60,
+   "cacheSuspects": 0,
+   "errors": 0,
+   "typical": {
+    "bust": false,
+    "crux": {
+     "page": null,
+     "origin": null
+    },
+    "score": 90,
+    "FCP": "0.9 s",
+    "LCP": "3.3 s",
+    "TBT": "160 ms",
+    "CLS": "0",
+    "SI": "0.9 s",
+    "totalWeight": "Total size was 775 KiB",
+    "fcpMs": 926,
+    "lcpMs": 3301,
+    "tbtMs": 157,
+    "cls": 0.000244525598977176,
+    "siMs": 926,
+    "ttfbMs": 3,
+    "domElements": 331,
+    "requests": 27,
+    "fetchedAt": "2026-10-31T10:46:09.957Z",
+    "lcpElement": "body > div.em-work-photos > div#em-work-main > img.em-work-main-img | <img src=\"https://elektroschit.com.ua/_astro/shafa-indykatsii-pozhezhohasinnia-lytsi…\" srcset=\"/_astro/shafa-indykatsii-pozhezhohasinnia-lyt",
+    "lcpPhases": [
+     {
+      "label": "Time to first byte",
+      "ms": 3
+     },
+     {
+      "label": "Resource load delay",
+      "ms": 110
+     },
+     {
+      "label": "Resource load duration",
+      "ms": 106
+     },
+     {
+      "label": "Element render delay",
+      "ms": 60
+     }
+    ],
+    "renderDelayMs": 60,
+    "mainThreadTop": [
+     {
+      "group": "Script Evaluation",
+      "ms": 336
+     },
+     {
+      "group": "Script Parsing & Compilation",
+      "ms": 136
+     },
+     {
+      "group": "Other",
+      "ms": 89
+     },
+     {
+      "group": "Style & Layout",
+      "ms": 85
+     },
+     {
+      "group": "Rendering",
+      "ms": 19
+     }
+    ],
+    "thirdParties": [
+     {
+      "name": "Google Tag Manager",
+      "transferKiB": 306,
+      "blockingMs": 0,
+      "mainThreadMs": 348
+     },
+     {
+      "name": "Cloudflare",
+      "transferKiB": 10,
+      "blockingMs": 0,
+      "mainThreadMs": 8
+     },
+     {
+      "name": "ahrefs.com",
+      "transferKiB": 4,
+      "blockingMs": 0,
+      "mainThreadMs": 5
+     },
+     {
+      "name": "Google Analytics",
+      "transferKiB": 1,
+      "blockingMs": 0,
+      "mainThreadMs": 0
+     }
+    ],
+    "topJsByTime": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6at0h2",
+      "ms": 258
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 165
+     },
+     {
+      "url": "/vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/",
+      "ms": 137
+     },
+     {
+      "url": "Unattributable",
+      "ms": 75
+     }
+    ],
+    "longTasks": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6at0h2",
+      "ms": 254
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 93
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 62
+     }
+    ],
+    "unusedJs": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6at0h2",
+      "wastedKiB": 75
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "wastedKiB": 62
+     }
+    ],
+    "unusedCss": [],
+    "byType": [
+     {
+      "type": "image",
+      "req": 12,
+      "kib": 361
+     },
+     {
+      "type": "script",
+      "req": 7,
+      "kib": 326
+     },
+     {
+      "type": "third-party",
+      "req": 6,
+      "kib": 321
+     },
+     {
+      "type": "font",
+      "req": 4,
+      "kib": 64
+     },
+     {
+      "type": "document",
+      "req": 1,
+      "kib": 22
+     },
+     {
+      "type": "other",
+      "req": 3,
+      "kib": 2
+     },
+     {
+      "type": "stylesheet",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "media",
+      "req": 0,
+      "kib": 0
+     }
+    ],
+    "imageSavingsTotal": "Est savings of 39 KiB",
+    "imageCount": 2,
+    "topImages": [
+     {
+      "url": "/_astro/shafa-indykatsii-pozhezhohasinnia-lytsiova-storona-kyiv-2026-05-01.C-1yqVoH_1Ggxhb.webp",
+      "sizeKiB": 113,
+      "saveKiB": 35
+     },
+     {
+      "url": "/_astro/shafa-indykatsii-pozhezhohasinnia-vnutrishnii-zahalnyi-kyiv-2026-05-03.g-bwLLC2_Ze0QN5.webp",
+      "sizeKiB": 12,
+      "saveKiB": 5
+     }
+    ],
+    "renderBlocking": null,
+    "renderBlockingUrls": [],
+    "lcpDiscoveryScore": 1,
+    "otherIssues": [
+     "legacy-javascript-insight — Est savings of 10 KiB",
+     "forced-reflow-insight",
+     "cache-insight — Est savings of 7 KiB",
+     "interactive — 4.9 s",
+     "max-potential-fid — 250 ms",
+     "network-dependency-tree-insight"
+    ]
+   }
+  },
+  {
+   "path": "/vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/",
+   "strategy": "mobile",
+   "n": 3,
+   "scores": [
+    98,
+    81,
+    100
+   ],
+   "scoreMedian": 98,
+   "scoreMin": 81,
+   "scoreMax": 100,
+   "spread": 19,
+   "lcpMedianMs": 1951,
+   "fcpMedianMs": 933,
+   "tbtMedianMs": 86,
+   "ttfbMedianMs": 4,
+   "renderDelayMedianMs": 49,
+   "cacheSuspects": 0,
+   "errors": 0,
+   "typical": {
+    "bust": false,
+    "crux": {
+     "page": null,
+     "origin": null
+    },
+    "score": 98,
+    "FCP": "0.9 s",
+    "LCP": "2.0 s",
+    "TBT": "140 ms",
+    "CLS": "0",
+    "SI": "0.9 s",
+    "totalWeight": "Total size was 775 KiB",
+    "fcpMs": 931,
+    "lcpMs": 1951,
+    "tbtMs": 137,
+    "cls": 0.0003426664467685585,
+    "siMs": 931,
+    "ttfbMs": 4,
+    "domElements": 325,
+    "requests": 25,
+    "fetchedAt": "2026-10-31T10:44:26.234Z",
+    "lcpElement": "body > div.em-work-photos > div#em-work-main > img.em-work-main-img | <img src=\"https://elektroschit.com.ua/_astro/shafa-keruvannia-ahro-ventyliatory-shak…\" srcset=\"/_astro/shafa-keruvannia-ahro-ventyliatory-sh",
+    "lcpPhases": [
+     {
+      "label": "Time to first byte",
+      "ms": 4
+     },
+     {
+      "label": "Resource load delay",
+      "ms": 174
+     },
+     {
+      "label": "Resource load duration",
+      "ms": 77
+     },
+     {
+      "label": "Element render delay",
+      "ms": 49
+     }
+    ],
+    "renderDelayMs": 49,
+    "mainThreadTop": [
+     {
+      "group": "Script Evaluation",
+      "ms": 300
+     },
+     {
+      "group": "Script Parsing & Compilation",
+      "ms": 133
+     },
+     {
+      "group": "Other",
+      "ms": 82
+     },
+     {
+      "group": "Style & Layout",
+      "ms": 70
+     },
+     {
+      "group": "Rendering",
+      "ms": 17
+     }
+    ],
+    "thirdParties": [
+     {
+      "name": "Google Tag Manager",
+      "transferKiB": 306,
+      "blockingMs": 0,
+      "mainThreadMs": 317
+     },
+     {
+      "name": "Cloudflare",
+      "transferKiB": 10,
+      "blockingMs": 0,
+      "mainThreadMs": 9
+     },
+     {
+      "name": "ahrefs.com",
+      "transferKiB": 4,
+      "blockingMs": 0,
+      "mainThreadMs": 5
+     },
+     {
+      "name": "Google Analytics",
+      "transferKiB": 1,
+      "blockingMs": 0,
+      "mainThreadMs": 0
+     }
+    ],
+    "topJsByTime": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "ms": 224
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 161
+     },
+     {
+      "url": "/vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/",
+      "ms": 119
+     },
+     {
+      "url": "Unattributable",
+      "ms": 65
+     }
+    ],
+    "longTasks": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "ms": 221
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 101
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "ms": 50
+     }
+    ],
+    "unusedJs": [
+     {
+      "url": "/gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1",
+      "wastedKiB": 75
+     },
+     {
+      "url": "/gtm.js?id=GTM-PZSRTZ2T",
+      "wastedKiB": 62
+     }
+    ],
+    "unusedCss": [],
+    "byType": [
+     {
+      "type": "image",
+      "req": 10,
+      "kib": 362
+     },
+     {
+      "type": "script",
+      "req": 7,
+      "kib": 326
+     },
+     {
+      "type": "third-party",
+      "req": 6,
+      "kib": 321
+     },
+     {
+      "type": "font",
+      "req": 4,
+      "kib": 64
+     },
+     {
+      "type": "document",
+      "req": 1,
+      "kib": 22
+     },
+     {
+      "type": "other",
+      "req": 3,
+      "kib": 2
+     },
+     {
+      "type": "stylesheet",
+      "req": 0,
+      "kib": 0
+     },
+     {
+      "type": "media",
+      "req": 0,
+      "kib": 0
+     }
+    ],
+    "imageSavingsTotal": "Est savings of 78 KiB",
+    "imageCount": 6,
+    "topImages": [
+     {
+      "url": "/_astro/dvyhuny-shkaf-zahalnyi-vyhlyad-kyiv-2026-06-c1.ZJeb36jV_Z2dy8fv.webp",
+      "sizeKiB": 101,
+      "saveKiB": 45
+     },
+     {
+      "url": "/_astro/shafa-keruvannia-ahro-ventyliatory-shakhty-dverni-indykatsia-2-kyiv-2022-09-06.qDjhXM7K_Z2qKSzk.webp",
+      "sizeKiB": 15,
+      "saveKiB": 8
+     },
+     {
+      "url": "/_astro/shafa-keruvannia-ahro-ventyliatory-shakhty-vnutrishniy-montazh-kyiv-2022-09-03.BVSnKzjC_2tUPXO.webp",
+      "sizeKiB": 15,
+      "saveKiB": 8
+     },
+     {
+      "url": "/_astro/shafa-keruvannia-ahro-ventyliatory-shakhty-zahalnyi-vykrytyi-kyiv-2022-09-02.DqaBR7gS_Z2gU2bM.webp",
+      "sizeKiB": 14,
+      "saveKiB": 7
+     },
+     {
+      "url": "/_astro/shafa-keruvannia-ahro-ventyliatory-shakhty-kontaktory-automaty-kyiv-2022-09-04.B0DKQ2-x_RWEPS.webp",
+      "sizeKiB": 12,
+      "saveKiB": 5
+     }
+    ],
+    "renderBlocking": null,
+    "renderBlockingUrls": [],
+    "lcpDiscoveryScore": 1,
+    "otherIssues": [
+     "interactive — 4.9 s",
+     "max-potential-fid — 220 ms",
+     "legacy-javascript-insight — Est savings of 10 KiB",
+     "cache-insight — Est savings of 7 KiB",
+     "network-dependency-tree-insight"
+    ]
+   }
+  }
+ ]
+}
