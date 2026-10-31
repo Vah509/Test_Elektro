@@ -1,14 +1,16 @@
 name: site-check
 
-# Запуск: положить ZIP с заданием в inbox/ (push в main) или вручную: Actions → site-check → Run workflow.
+# Запуск: ZIP в inbox/ (push в main), расписание (targets/schedule.json) или вручную: Actions → site-check → Run workflow.
 on:
   push:
     branches: [main]
     paths: ['inbox/*.zip']
+  schedule:
+    - cron: '7,37 * * * *'   # каждые 30 минут смотрит targets/schedule.json; без записей ничего не запускает
   workflow_dispatch:
     inputs:
       job:
-        description: 'Повторить сохранённое задание, например jobs/2026-10-30-first-standard.json (пусто = обработать inbox/)'
+        description: 'Повторить сохранённое задание, например jobs/2026-10-30-first-standard.json (пусто = обработать inbox/ и расписание)'
         required: false
         default: ''
 
@@ -34,7 +36,7 @@ jobs:
         with:
           node-version: 20
 
-      - name: Обработать очередь заданий
+      - name: Обработать очередь заданий и расписание
         env:
           PSI_KEY: ${{ secrets.PSI_KEY }}
           TG_TOKEN: ${{ secrets.TG_TOKEN }}
