@@ -1,0 +1,14 @@
+{
+ "id": "sat-targets",
+ "mode": "targets",
+ "base": "https://elektroschit.com.ua",
+ "goal": "Суббота, день: замер проблемных страниц (карточки работ, каталог, /pro-nas/, продукция)",
+ "source": "archive-or-manual",
+ "scheduleName": null,
+ "plannedAt": null,
+ "startedAt": "2026-10-31T13:17:53.321Z",
+ "finishedAt": "2026-10-31T13:22:09.168Z",
+ "durationMin": 4,
+ "ok": true,
+ "runUrl": "https://github.com/Vah509/Test_Elektro/actions/runs/41204908373"
+}

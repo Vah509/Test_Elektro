@@ -1,0 +1,13 @@
+🔬 site-check | targets | prod
+🎯 Суббота, день: замер проблемных страниц (карточки работ, каталог, /pro-nas/, продукция)
+🕒 2026-10-31 13:17 UTC (Киев 31.10.2026, 15:17)
+PSI: измерено 8/8
+🟢 95 mobile /pro-nas/ · LCP 1,0 с · TBT 242
+🟢 95 mobile /vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/ · LCP 2,4 с · TBT 86
+🟢 96 mobile /vykonani-roboty/hrshch-400a-skladskyi-kompleks/ · LCP 1,8 с · TBT 69
+🟢 97 mobile /vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/ · LCP 2,6 с · TBT 57
+🟢 98 mobile /posluhy-ta-produktsiia/ · LCP 0,9 с · TBT 163
+🟢 98 mobile /vykonani-roboty/ · LCP 2,0 с · TBT 144
+🟢 98 mobile /vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/ · LCP 2,0 с · TBT 127
+🟢 99 mobile / · LCP 1,0 с · TBT 119
+Сервер /: ответ 66/68/286 мс, cf-cache DYNAMIC, сжатие br
