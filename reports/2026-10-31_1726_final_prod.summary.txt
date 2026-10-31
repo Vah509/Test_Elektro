@@ -1,0 +1,23 @@
+🔬 site-check | final | prod
+🎯 Суббота: замер standard (те же параметры, что в пятницу) только один поток для сравнения по времени суток
+🕒 2026-10-31 17:26 UTC (Киев 31.10.2026, 19:26)
+Аудит: 🔴 0 | 🟡 2 | ⚪ 245 (страниц 68)
+PSI: измерено 72/72
+🟡 86 mobile /posluhy-ta-produktsiia/shuz/ · LCP 0,9 с · TBT 104
+🟡 87 mobile /vykonani-roboty/dvyhuny-plavnyi-pusk-4x15kw-ahro/ · LCP 3,9 с · TBT 120
+🟡 88 mobile /vykonani-roboty/hrshch-avr-200a-skladske/ · LCP 3,9 с · TBT 52
+🟡 88 mobile /vykonani-roboty/shafi-aeratoriv-agrofirma-weg-ssw07/ · LCP 2,4 с · TBT 119
+🟡 88 mobile /vykonani-roboty/shuz-zasuvka/ · LCP 3,9 с · TBT 126
+🟡 89 mobile /vykonani-roboty/hrshch-rubilnyk-400a-oblik/ · LCP 3,7 с · TBT 85
+… остальные 66 стр. ≥ 90
+🔻 Регрессии:
+• /vykonani-roboty/dvyhuny-plavnyi-pusk-4x15kw-ahro/ mobile: 98 → 87, LCP 2,3 с → 3,9 с (было 2026-10-31)
+• /vykonani-roboty/hrshch-avr-250a-kontaktory/ mobile: 100 → 94, LCP 1,7 с → 3,0 с (было 2026-10-31)
+• /vykonani-roboty/hrshch-rubilnyk-400a-oblik/ mobile: 99 → 89, LCP 2,1 с → 3,7 с (было 2026-10-31)
+• /vykonani-roboty/shafi-keruvannia-hradirnyi-ventilyatory/ mobile: 99 → 92, LCP 2,0 с → 3,0 с (было 2026-10-31)
+🔺 Улучшений: 1
+Топ причин:
+1. /vykonani-roboty/shafi-aeratoriv-agrofirma-weg-ssw07/ (88): TBT 397 мс — главный поток: Script Evaluation 565 мс; сторонний «Google Tag Manager» (блокировка 0 мс); JS /gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1 398 мс
+2. /vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/ (93): TBT 299 мс — главный поток: Script Evaluation 520 мс; сторонний «Google Tag Manager» (блокировка 0 мс); JS /gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6at0h2 458 мс
+3. /vykonani-roboty/shafa-shchob-2-kanaly/ (94): TBT 207 мс — главный поток: Script Evaluation 374 мс; сторонний «Google Tag Manager» (блокировка 0 мс)
+Сервер /: ответ 47/61/76 мс, cf-cache DYNAMIC, сжатие br
