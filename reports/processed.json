@@ -36,8 +36,13 @@
  },
  "_alive": "2026-10-31",
  "sat-final": {
-  "date": "2026-10-31T14:30:31.683Z",
-  "prefix": "reports/2026-10-31_1350_final_prod",
+  "date": "2026-10-31T16:05:35.546Z",
+  "prefix": "reports/2026-10-31_1526_final_prod",
+  "ok": true
+ },
+ "sched:sat-18@2026-10-31T16:00Z": {
+  "date": "2026-10-31T16:18:31.735Z",
+  "prefix": "reports/2026-10-31_1605_standard_prod",
   "ok": true
  }
 }

@@ -1,0 +1,22 @@
+🔬 site-check | final | prod
+🎯 Суббота: замер standard (те же параметры, что в пятницу) только один поток для сравнения по времени суток
+🕒 2026-10-31 15:26 UTC (Киев 31.10.2026, 17:26)
+Аудит: 🔴 0 | 🟡 2 | ⚪ 245 (страниц 68)
+PSI: измерено 72/72
+🟡 83 mobile /vykonani-roboty/shkaf-indykatsii-apg-mnemo/ · LCP 3,4 с · TBT 245
+🟡 85 mobile /vykonani-roboty/shafa-dymovydalennia-1-5kvt/ · LCP 3,9 с · TBT 213
+🟡 87 mobile /vykonani-roboty/hrshch-avr-400a-technoelectric/ · LCP 2,3 с · TBT 210
+🟡 87 mobile /vykonani-roboty/shafa-shmu-dymovydalennia-5-5kvt/ · LCP 3,9 с · TBT 103
+🟡 88 mobile /vykonani-roboty/shchyt-obohriv-lyvnevok/ · LCP 3,8 с · TBT 113
+… остальные 67 стр. ≥ 90
+🔻 Регрессии:
+• /vykonani-roboty/avr-shafa-try-vvody-mlbs/ mobile: 97 → 94, LCP 2,0 с → 3,0 с (было 2026-10-31)
+• /vykonani-roboty/hrshch-avr-160a/ mobile: 99 → 94, LCP 2,0 с → 3,0 с (было 2026-10-31)
+• /vykonani-roboty/hrshch-avr-200a-skladske/ mobile: 96 → 90, LCP 2,3 с → 3,2 с (было 2026-10-31)
+• /vykonani-roboty/hrshch-avr-250a-3-vvody/ mobile: 98 → 97, LCP 1,7 с → 2,6 с (было 2026-10-31)
+🔺 Улучшений: 1
+Топ причин:
+1. /vykonani-roboty/shkaf-indykatsii-apg-mnemo/ (83): TBT 374 мс — главный поток: Script Evaluation 379 мс; сторонний «Google Tag Manager» (блокировка 0 мс); JS /gtm.js?id=GTM-PZSRTZ2T 378 мс
+2. /vykonani-roboty/shafa-dymovydalennia-1-5kvt/ (85): TBT 213 мс — главный поток: Script Evaluation 399 мс; сторонний «Google Tag Manager» (блокировка 0 мс); JS /gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1 313 мс
+3. /vykonani-roboty/hrshch-avr-200a-skladske/ (90): TBT 201 мс — главный поток: Script Evaluation 375 мс; сторонний «Google Tag Manager» (блокировка 0 мс); JS /gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1 312 мс
+Сервер /: ответ 54/113/161 мс, cf-cache DYNAMIC, сжатие br

@@ -1,0 +1,14 @@
+🔬 site-check | standard | prod
+🎯 Суббота: замер standard (те же параметры, что в пятницу) только один поток для сравнения по времени суток
+🕒 2026-10-31 16:05 UTC (Киев 31.10.2026, 18:05)
+Аудит: 🔴 0 | 🟡 2 | ⚪ 245 (страниц 68)
+PSI: измерено 23/23
+🟡 82 mobile /vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/ · LCP 4,8 с · TBT 254
+🟡 88 mobile /vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/ · LCP 3,9 с · TBT 105
+… остальные 21 стр. ≥ 90
+🔻 Регрессии:
+• /vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/ mobile: 98 → 88, LCP 2,3 с → 3,9 с (было 2026-10-31)
+• /vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/ mobile: 97 → 82, LCP 2,1 с → 4,8 с (было 2026-10-31)
+Топ причин:
+1. /vykonani-roboty/ (94): LCP-картинка не оптимизирована для раннего обнаружения (fetchpriority/preload)
+Сервер /: ответ 64/75/149 мс, cf-cache DYNAMIC, сжатие br
