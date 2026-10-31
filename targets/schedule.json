@@ -1,0 +1,9 @@
+{
+  "tz": "Europe/Kyiv",
+  "graceHours": 6,
+  "entries": [
+    { "name": "sat-10", "at": "2026-10-31T10:00", "job": "jobs/sat-standard.json" },
+    { "name": "sat-14", "at": "2026-10-31T14:00", "job": "jobs/sat-targets.json" },
+    { "name": "sat-18", "at": "2026-10-31T18:00", "job": "jobs/sat-standard.json" }
+  ]
+}

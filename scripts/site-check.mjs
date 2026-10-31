@@ -343,10 +343,13 @@ function checkWork(p, path, imgStatusUrls) {
   }
   if (!/class="[^"]*em-lightbox-img/.test(p.html)) add('ERR', 'work-no-lightbox-el', path, 'на странице нет .em-lightbox-img');
   if (!p.scripts.some(s => /em-work-lightbox\.js/.test(s))) add('ERR', 'work-no-lightbox-js', path, 'не подключён em-work-lightbox.js');
-  if (!/class="[^"]*em-similar-grid/.test(p.html)) add('INFO', 'work-no-similar', path, 'нет блока «Схожі роботи»');
+  // Ищем именно элемент с классом em-similar-grid (а не упоминание в inline-CSS из <head>)
+  // и считаем карточки с классом em-work-card независимо от прочих классов у элемента.
+  const simAt = p.html.search(/class="[^"]*\bem-similar-grid\b/);
+  if (simAt < 0) add('INFO', 'work-no-similar', path, 'нет блока «Схожі роботи»');
   else {
-    const sim = (p.html.split('em-similar-grid')[1] || '');
-    const cards = (sim.match(/class="em-work-card"/g) || []).length;
+    const sim = p.html.slice(simAt).split('</section>')[0];
+    const cards = (sim.match(/class="(?:[^"]*\s)?em-work-card(?=[\s"])/g) || []).length;
     if (cards < 2) add('WARN', 'work-similar-few', path, `«Схожі»: ${cards} карт.`);
   }
   if (!p.og.type || p.og.type !== 'article') add('INFO', 'work-og-type', path, `og:type=${p.og.type}`);
