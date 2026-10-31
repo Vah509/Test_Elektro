@@ -1,0 +1,15 @@
+🔬 site-check | targets | prod
+🎯 Суббота, день: замер проблемных страниц (карточки работ, каталог, /pro-nas/, продукция)
+🕒 2026-10-31 12:37 UTC (Киев 31.10.2026, 14:37)
+PSI: измерено 8/8
+🟢 95 mobile /vykonani-roboty/hrshch-400a-skladskyi-kompleks/ · LCP 2,8 с · TBT 37
+🟢 96 mobile /vykonani-roboty/shafa-indykatsii-pozhezhohasinnia/ · LCP 2,6 с · TBT 133
+🟢 97 mobile /vykonani-roboty/shafa-keruvannia-ahro-ventyliatory-shakhty/ · LCP 2,3 с · TBT 79
+🟢 98 mobile /pro-nas/ · LCP 0,9 с · TBT 139
+🟢 98 mobile /vykonani-roboty/ · LCP 2,3 с · TBT 46
+🟢 99 mobile /posluhy-ta-produktsiia/ · LCP 0,9 с · TBT 126
+🟢 99 mobile /vykonani-roboty/post-upravlinnia-osvitlenniiam-16-kanaliv/ · LCP 2,0 с · TBT 72
+🟢 100 mobile / · LCP 0,9 с · TBT 80
+🔻 Регрессии:
+• /vykonani-roboty/hrshch-400a-skladskyi-kompleks/ mobile: 99 → 95, LCP 1,8 с → 2,8 с (было 2026-10-31)
+Сервер /: ответ 45/57/259 мс, cf-cache DYNAMIC, сжатие br

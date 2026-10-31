@@ -10,8 +10,9 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
-import { tgSend, tgDoc } from './lib/telegram.mjs';
-import { loadSchedule, validateSchedule, computeSlots, kyivTime, describeEntry } from './lib/schedule.mjs';
+import { tgSend } from './lib/telegram.mjs';
+import { msg, doneMessage } from './lib/digest.mjs';
+import { loadSchedule, validateSchedule, computeSlots, kyivTime, kyivDateTime, describeEntry, zonedToUtc, localParts } from './lib/schedule.mjs';
 
 // Пробный запуск (staging-проверка): модули загрузились без ошибок — выходим.
 if (process.env.SC_SMOKE) { console.log('smoke: process-jobs загружается'); process.exit(0); }
@@ -20,6 +21,9 @@ const INBOX = 'inbox';
 const STATE = 'reports/processed.json';
 const SCHEDULE_FILE = 'targets/schedule.json';
 const ALLOWED = /^(jobs|targets|scripts|docs)\/[^\0\\]+$|^README\.md$/;
+const REPO_URL = process.env.GITHUB_REPOSITORY ? `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY}` : '';
+const BRANCH = process.env.GITHUB_REF_NAME || 'main';
+const nowT = () => kyivTime(Date.now());
 const RUN_URL = process.env.GITHUB_RUN_ID ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}` : '';
 
 const readState = () => { try { return JSON.parse(fs.readFileSync(STATE, 'utf8')); } catch { return {}; } };
@@ -97,15 +101,14 @@ function runSiteCheck(jobFile) {
 // sched: { name, slotMs } — если запуск идёт по расписанию.
 async function runJob(jobFile, state, force, label, stateKey, sched) {
   let job;
-  try { job = JSON.parse(fs.readFileSync(jobFile, 'utf8')); } catch (e) { await tgSend(`❌ site-check: job «${jobFile}» не читается: ${e.message}`); return false; }
+  try { job = JSON.parse(fs.readFileSync(jobFile, 'utf8')); } catch (e) { await tgSend(msg.fail(nowT(), 0, jobFile, '?', `задание не читается: ${e.message}`, RUN_URL)); return false; }
   const id = String(job.id || path.basename(jobFile, '.json'));
   const key = stateKey || id;
-  if (!force && state[key]) { await tgSend(`⏭ site-check: job «${id}» уже выполнялся ${state[key].date.slice(0, 16)} — пропущен. Чтобы повторить, смени id в файле задания.`); return true; }
+  if (!force && state[key]) { await tgSend(msg.skip(id)); return true; }
   const mode = job.mode || 'standard';
-  const who = sched ? `По расписанию «${sched.name}»: тест «${id}» (${mode})` : `Тест «${id}» (${mode})`;
   const t0 = Date.now();
-  const plan = sched ? ` (по плану ${kyivTime(sched.slotMs)}, задержка ${Math.max(0, Math.round((t0 - sched.slotMs) / 60000))} мин)` : '';
-  await tgSend(`▶️ ${who} — старт ${kyivTime(t0)}${plan}\n${job.goal ? '🎯 ' + job.goal + '\n' : ''}${job.base || 'prod'}`);
+  const plan = sched ? `по плану ${kyivTime(sched.slotMs)}, задержка ${Math.max(0, Math.round((t0 - sched.slotMs) / 60000))} мин` : '';
+  await tgSend(msg.start(kyivTime(t0), id, mode, job.base ? job.base.replace(/^https?:\/\//, '') : 'prod', plan));
   const r = await runSiteCheck(jobFile);
   const t1 = Date.now();
   const dur = Math.max(1, Math.round((t1 - t0) / 60000));
@@ -117,11 +120,15 @@ async function runJob(jobFile, state, force, label, stateKey, sched) {
     } catch { /* не критично */ }
   }
   if (ok) {
-    let sum = ''; try { sum = fs.readFileSync(`${r.prefix}.summary.txt`, 'utf8'); } catch { /* нет */ }
-    await tgSend(`✅ ${who} — завершён ${kyivTime(t1)}, длительность ${dur} мин\n\n` + (sum || '') + (RUN_URL ? `\n\n${RUN_URL}` : '') + `\n📄 ${r.prefix}.md`);
-    await tgDoc(`${r.prefix}.md`, `site-check ${id}`);
+    let report = null; try { report = JSON.parse(fs.readFileSync(`${r.prefix}.json`, 'utf8')); } catch { /* нет json — сообщение без разбора */ }
+    // отчёт коммитится в конце workflow, ссылка заработает через минуту после сообщения
+    const reportUrl = REPO_URL ? `${REPO_URL}/blob/${BRANCH}/${r.prefix}.md` : '';
+    let text;
+    try { text = doneMessage({ report, t: kyivTime(t1), dur, name: id, mode, base: job.base ? job.base.replace(/^https?:\/\//, '') : 'prod', reportUrl, runUrl: RUN_URL }); }
+    catch (e) { text = `🟢 site-check: тест выполнен · ${kyivTime(t1)} · ${dur} мин\n${id} (${mode})\n⚠ сводка не собралась: ${e.message}\n${reportUrl || RUN_URL}`; }
+    await tgSend(text);
   } else {
-    await tgSend(`🔴 ${who} — ошибка в ${kyivTime(t1)} (код ${r.code}, ${dur} мин).\n\n${r.tail.slice(-1200)}${RUN_URL ? '\n\n' + RUN_URL : ''}`);
+    await tgSend(msg.fail(kyivTime(t1), dur, id, mode, r.tail.split('\n').filter(Boolean).slice(-4).join('\n'), RUN_URL));
   }
   return !!ok;
 }
@@ -135,9 +142,11 @@ async function processInbox(state) {
     const zip = path.join(INBOX, zips[i]);
     const queueInfo = `архив ${i + 1}/${zips.length} «${zips[i]}»`;
     const stage = fs.mkdtempSync(path.join(os.tmpdir(), 'sc-stage-'));
+    let hadScripts = false;
     try {
       const entries = listZip(zip);
       validate(entries);
+      hadScripts = entries.some(e => /^scripts\/.+\.mjs$/.test(e));
       const r = spawnSync('unzip', ['-o', '-q', zip, '-d', stage], { encoding: 'utf8' });
       if (r.status !== 0) throw new Error('распаковка не удалась: ' + r.stderr.slice(0, 200));
       const { scripts } = checkStaged(stage, entries);
@@ -150,16 +159,15 @@ async function processInbox(state) {
         try {
           const sc = JSON.parse(fs.readFileSync(SCHEDULE_FILE, 'utf8'));
           const jobMap = Object.fromEntries((sc.entries || []).map(e => [e.job, jobInfo(e.job)]));
-          await tgSend(`🗓 Расписание обновлено (${sc.tz || 'Europe/Kyiv'}):\n` + ((sc.entries || []).map(e => '• ' + describeEntry(e, jobMap)).join('\n') || 'записей нет — по расписанию ничего не запускается'));
+          await tgSend(msg.schedule(nowT(), sc.tz || 'Europe/Kyiv', (sc.entries || []).map(e => '• ' + describeEntry(e, jobMap))));
         } catch { /* проверено выше */ }
       }
-      if (jobs.length) await tgSend(`📦 Принято задание на тестирование (${queueInfo}):\n` + jobs.map(j => { const o = jobInfo(j); return `• «${o.id}» — ${o.mode}${o.runs != null ? `, прогонов ${o.runs}` : ''}${o.device ? `, ${o.device}` : ''}${o.goal ? `\n  🎯 ${o.goal}` : ''}`; }).join('\n'));
-      if (scripts.length) await tgSend(`🛠 site-check: ${queueInfo} — скрипты обновлены (${scripts.map(s => s.replace(/^scripts\//, '')).join(', ')}). Проверка синтаксиса и пробный запуск прошли.`);
-      if (!jobs.length) { await tgSend(`📦 site-check: ${queueInfo} принят, заданий для немедленного запуска нет — обновлены файлы: ${files.slice(0, 8).join(', ')}${files.length > 8 ? ` и ещё ${files.length - 8}` : ''}`); continue; }
+      if (scripts.length) await tgSend(msg.scriptsOk(nowT()));
+      else if (!files.includes(SCHEDULE_FILE) && !jobs.length) await tgSend(msg.filesOk(nowT(), files.length));
       for (const j of jobs) { if (!(await runJob(j, state, false, queueInfo))) failed = true; writeState(state); }
     } catch (e) {
       failed = true;
-      await tgSend(`❌ site-check: ${queueInfo} отклонён, репозиторий не изменён — ${e.message}`);
+      await tgSend((hadScripts ? msg.scriptsFail : msg.archiveFail)(nowT(), `${queueInfo}: ${e.message}\nРепозиторий не изменён.`));
     } finally {
       fs.rmSync(stage, { recursive: true, force: true });
       fs.rmSync(zip, { force: true }); // архив удаляется всегда: повторно он не запустится
@@ -180,7 +188,7 @@ async function processSchedule(state) {
   for (const m of missed) {
     if (state[m.key]) continue;
     state[m.key] = { date: new Date().toISOString(), skipped: true };
-    await tgSend(`⏭ site-check: расписание «${m.name}» (${new Date(m.slotMs).toISOString().slice(0, 16).replace('T', ' ')} UTC) пропущено — запуск опоздал больше чем на ${sched.graceHours || 6} ч.`);
+    await tgSend(msg.missed(m.name, `${kyivDateTime(m.slotMs)} Киев`, sched.graceHours || 6));
   }
   for (const d of due) {
     if (state[d.key]) continue;
@@ -189,26 +197,41 @@ async function processSchedule(state) {
     writeState(state);
   }
   if (!due.length) console.log('По расписанию сейчас ничего не нужно запускать.');
+  await heartbeat(state, sched, due.length > 0 || missed.length > 0);
   return failed;
 }
-async function notifySchedError(state, msg) {
-  if (state._schedErr !== msg) { state._schedErr = msg; await tgSend(`⚠️ site-check: расписание не применено — ${msg}`); }
+// «Расписание живо»: раз в сутки (по Киеву) одна строка, если cron сработал. Тишина больше суток = cron не работает.
+async function heartbeat(state, sched, didWork) {
+  const tz = sched.tz || 'Europe/Kyiv', now = Date.now(), p = localParts(now, tz);
+  const today = `${p.y}-${String(p.m).padStart(2, '0')}-${String(p.d).padStart(2, '0')}`;
+  if (state._alive === today) return;
+  state._alive = today;
+  if (didWork) return; // запуск сам показывает, что расписание работает
+  const entries = (sched.entries || []).filter(e => e.enabled !== false);
+  let next = null;
+  for (const e of entries) if (e.at) { const [d, t] = e.at.split(/[T ]/); const [y, m, dd] = d.split('-').map(Number); const [hh, mm] = t.split(':').map(Number); const ms = zonedToUtc(y, m, dd, hh, mm, tz); if (ms > now && (!next || ms < next.ms)) next = { ms, name: e.name }; }
+  await tgSend(msg.alive(kyivTime(now, tz), next ? `${kyivDateTime(next.ms, tz)} «${next.name}»` : '', entries.filter(e => e.daily).length));
+}
+async function notifySchedError(state, why) {
+  if (state._schedErr !== why) { state._schedErr = why; await tgSend(msg.schedErr(why)); }
   return false;
 }
 
 async function main() {
   const state = readState();
   const rerun = (process.env.JOB_INPUT || '').trim();
+  let f0 = false;
   if (rerun) {
-    if (!/^jobs\/[\w.\-]+\.json$/.test(rerun) || !fs.existsSync(rerun)) { await tgSend(`❌ site-check: повтор job: файл «${rerun}» не найден (ожидается jobs/имя.json)`); process.exit(1); }
-    const ok = await runJob(rerun, state, true, 'повтор');
-    writeState(state); process.exit(ok ? 0 : 1);
+    if (!/^jobs\/[\w.\-]+\.json$/.test(rerun) || !fs.existsSync(rerun)) { await tgSend(msg.fail(nowT(), 0, rerun, '?', 'повтор: файл не найден (ожидается jobs/имя.json)', RUN_URL)); process.exit(1); }
+    f0 = !(await runJob(rerun, state, true, 'повтор'));
+    writeState(state);
   }
+  // после ручного повтора очередь и расписание тоже обрабатываются (раньше здесь был exit)
   const f1 = await processInbox(state);
   writeState(state);
   const f2 = await processSchedule(state);
   writeState(state);
-  if (f1 || f2) process.exit(1);
+  if (f0 || f1 || f2) process.exit(1);
 }
 
-main().catch(async e => { console.error(e); await tgSend(`❌ site-check: критическая ошибка обработчика: ${e.message}`); process.exit(1); });
+main().catch(async e => { console.error(e); await tgSend(msg.fail(nowT(), 0, 'process-jobs', '?', `критическая ошибка: ${e.message}`, RUN_URL)); process.exit(1); });

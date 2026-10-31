@@ -23,5 +23,15 @@
   "date": "2026-10-31T10:47:57.764Z",
   "prefix": "reports/2026-10-31_1043_targets_prod",
   "ok": true
+ },
+ "sched:sat-10@2026-10-31T08:00Z": {
+  "date": "2026-10-31T12:37:37.796Z",
+  "prefix": "reports/2026-10-31_1231_standard_prod",
+  "ok": true
+ },
+ "sched:sat-14@2026-10-31T12:00Z": {
+  "date": "2026-10-31T12:41:51.692Z",
+  "prefix": "reports/2026-10-31_1237_targets_prod",
+  "ok": true
  }
 }
