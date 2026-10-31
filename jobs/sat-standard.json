@@ -1,12 +1,12 @@
 {
   "id": "sat-standard",
   "scheduledOnly": true,
-  "goal": "Суббота: замер standard (те же параметры, что в пятницу) для сравнения по времени суток",
+  "goal": "Суббота: замер standard (те же параметры, что в пятницу) только один поток для сравнения по времени суток",
   "mode": "standard",
   "base": "https://elektroschit.com.ua",
   "runs": 3,
   "device": "key",
   "detail": "full",
-  "parallel": 2,
+  "parallel": 1,
   "server": true
 }
