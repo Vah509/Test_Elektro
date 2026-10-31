@@ -1,0 +1,14 @@
+🔬 site-check | final | prod
+🎯 Суббота: замер standard (те же параметры, что в пятницу) только один поток для сравнения по времени суток
+🕒 2026-10-31 13:50 UTC (Киев 31.10.2026, 15:50)
+Аудит: 🔴 0 | 🟡 2 | ⚪ 245 (страниц 68)
+PSI: измерено 72/72
+🟡 89 mobile /vykonani-roboty/shksdv-klapan-dyspetcheryzatsiya/ · LCP 3,2 с · TBT 132
+… остальные 71 стр. ≥ 90
+🔻 Регрессии:
+• /vykonani-roboty/ mobile: 98 → 95, LCP 2,0 с → 3,0 с (было 2026-10-31)
+Топ причин:
+1. /vykonani-roboty/shksdv-klapan-dyspetcheryzatsiya/ (89): TBT 222 мс — главный поток: Script Evaluation 419 мс; сторонний «Google Tag Manager» (блокировка 0 мс); JS /gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1 306 мс
+2. /ru/uslugi-i-produktsiya/ (93): 2 блокирующих ресурсов: /js/em-site.js, /cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+3. /vykonani-roboty/shafa-shchob-2-kanaly/ (93): TBT 226 мс — главный поток: Script Evaluation 393 мс; сторонний «Google Tag Manager» (блокировка 0 мс); JS /gtag/js?id=G-BQR848YQKK&cx=c&gtm=4e6as1 322 мс
+Сервер /: ответ 48/70/89 мс, cf-cache DYNAMIC, сжатие br

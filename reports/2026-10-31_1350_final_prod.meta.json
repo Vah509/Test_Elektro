@@ -1,0 +1,14 @@
+{
+ "id": "sat-final",
+ "mode": "final",
+ "base": "https://elektroschit.com.ua",
+ "goal": "Суббота: замер standard (те же параметры, что в пятницу) только один поток для сравнения по времени суток",
+ "source": "archive-or-manual",
+ "scheduleName": null,
+ "plannedAt": null,
+ "startedAt": "2026-10-31T13:50:39.164Z",
+ "finishedAt": "2026-10-31T14:30:31.683Z",
+ "durationMin": 40,
+ "ok": true,
+ "runUrl": "https://github.com/Vah509/Test_Elektro/actions/runs/41207377682"
+}

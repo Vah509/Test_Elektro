@@ -34,5 +34,10 @@
   "prefix": "reports/2026-10-31_1237_targets_prod",
   "ok": true
  },
- "_alive": "2026-10-31"
+ "_alive": "2026-10-31",
+ "sat-final": {
+  "date": "2026-10-31T14:30:31.683Z",
+  "prefix": "reports/2026-10-31_1350_final_prod",
+  "ok": true
+ }
 }
