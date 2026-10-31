@@ -93,3 +93,17 @@ export function loadSchedule(file) {
   if (!fs.existsSync(file)) return null;
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
+
+// ---- человекочитаемые описания (для сообщений в Telegram) ----
+export function kyivTime(ms, tz = 'Europe/Kyiv') {
+  return new Intl.DateTimeFormat('ru-RU', { timeZone: tz, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(ms));
+}
+export function kyivDateTime(ms, tz = 'Europe/Kyiv') {
+  return new Intl.DateTimeFormat('ru-RU', { timeZone: tz, day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(ms)).replace(',', '');
+}
+const DAYS = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+export function describeEntry(e, jobs = {}) {
+  const j = jobs[e.job] ? ` ${jobs[e.job].mode || 'standard'}` : '';
+  const when = e.at ? e.at.replace('T', ' ') : `каждый день ${e.daily}${e.days ? ' (' + e.days.map(d => DAYS[d - 1]).join(',') + ')' : ''}${e.from ? ' с ' + e.from : ''}${e.until ? ' по ' + e.until : ''}`;
+  return `${when} —${j} «${e.name}»${e.enabled === false ? ' (выключено)' : ''}`;
+}

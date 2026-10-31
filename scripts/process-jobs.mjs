@@ -11,7 +11,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
 import { tgSend, tgDoc } from './lib/telegram.mjs';
-import { loadSchedule, validateSchedule, computeSlots } from './lib/schedule.mjs';
+import { loadSchedule, validateSchedule, computeSlots, kyivTime, describeEntry } from './lib/schedule.mjs';
 
 // Пробный запуск (staging-проверка): модули загрузились без ошибок — выходим.
 if (process.env.SC_SMOKE) { console.log('smoke: process-jobs загружается'); process.exit(0); }
@@ -94,22 +94,34 @@ function runSiteCheck(jobFile) {
 }
 
 // stateKey: ключ в processed.json (по умолчанию id задания). Для запусков по расписанию — ключ слота.
-async function runJob(jobFile, state, force, label, stateKey) {
+// sched: { name, slotMs } — если запуск идёт по расписанию.
+async function runJob(jobFile, state, force, label, stateKey, sched) {
   let job;
   try { job = JSON.parse(fs.readFileSync(jobFile, 'utf8')); } catch (e) { await tgSend(`❌ site-check: job «${jobFile}» не читается: ${e.message}`); return false; }
   const id = String(job.id || path.basename(jobFile, '.json'));
   const key = stateKey || id;
   if (!force && state[key]) { await tgSend(`⏭ site-check: job «${id}» уже выполнялся ${state[key].date.slice(0, 16)} — пропущен. Чтобы повторить, смени id в файле задания.`); return true; }
-  await tgSend(`▶️ site-check: старт ${label} «${id}»\nрежим ${job.mode || 'standard'} → ${job.base || 'prod'}${job.goal ? '\n🎯 ' + job.goal : ''}`);
+  const mode = job.mode || 'standard';
+  const who = sched ? `По расписанию «${sched.name}»: тест «${id}» (${mode})` : `Тест «${id}» (${mode})`;
+  const t0 = Date.now();
+  const plan = sched ? ` (по плану ${kyivTime(sched.slotMs)}, задержка ${Math.max(0, Math.round((t0 - sched.slotMs) / 60000))} мин)` : '';
+  await tgSend(`▶️ ${who} — старт ${kyivTime(t0)}${plan}\n${job.goal ? '🎯 ' + job.goal + '\n' : ''}${job.base || 'prod'}`);
   const r = await runSiteCheck(jobFile);
+  const t1 = Date.now();
+  const dur = Math.max(1, Math.round((t1 - t0) / 60000));
   const ok = r.code === 0 && r.prefix;
-  state[key] = { date: new Date().toISOString(), prefix: r.prefix || null, ok: !!ok };
+  state[key] = { date: new Date(t1).toISOString(), prefix: r.prefix || null, ok: !!ok };
+  if (r.prefix) { // время запуска рядом с отчётом
+    try {
+      fs.writeFileSync(`${r.prefix}.meta.json`, JSON.stringify({ id, mode, base: job.base || null, goal: job.goal || null, source: sched ? 'schedule' : 'archive-or-manual', scheduleName: sched ? sched.name : null, plannedAt: sched ? new Date(sched.slotMs).toISOString() : null, startedAt: new Date(t0).toISOString(), finishedAt: new Date(t1).toISOString(), durationMin: dur, ok: !!ok, runUrl: RUN_URL || null }, null, 1));
+    } catch { /* не критично */ }
+  }
   if (ok) {
     let sum = ''; try { sum = fs.readFileSync(`${r.prefix}.summary.txt`, 'utf8'); } catch { /* нет */ }
-    await tgSend((sum || `✅ job «${id}» готов`) + (RUN_URL ? `\n\n${RUN_URL}` : '') + `\n📄 ${r.prefix}.md`);
+    await tgSend(`✅ ${who} — завершён ${kyivTime(t1)}, длительность ${dur} мин\n\n` + (sum || '') + (RUN_URL ? `\n\n${RUN_URL}` : '') + `\n📄 ${r.prefix}.md`);
     await tgDoc(`${r.prefix}.md`, `site-check ${id}`);
   } else {
-    await tgSend(`🔴 site-check: job «${id}» завершился с ошибкой (код ${r.code}).\n\n${r.tail.slice(-1200)}${RUN_URL ? '\n\n' + RUN_URL : ''}`);
+    await tgSend(`🔴 ${who} — ошибка в ${kyivTime(t1)} (код ${r.code}, ${dur} мин).\n\n${r.tail.slice(-1200)}${RUN_URL ? '\n\n' + RUN_URL : ''}`);
   }
   return !!ok;
 }
@@ -133,6 +145,15 @@ async function processInbox(state) {
       const files = entries.filter(e => !e.endsWith('/'));
       // задания с "scheduledOnly": true только кладутся в репозиторий — запускает их расписание
       const jobs = files.filter(e => /^jobs\/[^/]+\.json$/.test(e)).sort().filter(e => { try { return JSON.parse(fs.readFileSync(e, 'utf8')).scheduledOnly !== true; } catch { return true; } });
+      const jobInfo = j => { try { const o = JSON.parse(fs.readFileSync(j, 'utf8')); return { file: j, id: o.id || path.basename(j, '.json'), mode: o.mode || 'standard', goal: o.goal, runs: o.runs, device: o.device, scheduledOnly: o.scheduledOnly === true }; } catch { return { file: j, id: j, mode: '?' }; } };
+      if (files.includes(SCHEDULE_FILE)) {
+        try {
+          const sc = JSON.parse(fs.readFileSync(SCHEDULE_FILE, 'utf8'));
+          const jobMap = Object.fromEntries((sc.entries || []).map(e => [e.job, jobInfo(e.job)]));
+          await tgSend(`🗓 Расписание обновлено (${sc.tz || 'Europe/Kyiv'}):\n` + ((sc.entries || []).map(e => '• ' + describeEntry(e, jobMap)).join('\n') || 'записей нет — по расписанию ничего не запускается'));
+        } catch { /* проверено выше */ }
+      }
+      if (jobs.length) await tgSend(`📦 Принято задание на тестирование (${queueInfo}):\n` + jobs.map(j => { const o = jobInfo(j); return `• «${o.id}» — ${o.mode}${o.runs != null ? `, прогонов ${o.runs}` : ''}${o.device ? `, ${o.device}` : ''}${o.goal ? `\n  🎯 ${o.goal}` : ''}`; }).join('\n'));
       if (scripts.length) await tgSend(`🛠 site-check: ${queueInfo} — скрипты обновлены (${scripts.map(s => s.replace(/^scripts\//, '')).join(', ')}). Проверка синтаксиса и пробный запуск прошли.`);
       if (!jobs.length) { await tgSend(`📦 site-check: ${queueInfo} принят, заданий для немедленного запуска нет — обновлены файлы: ${files.slice(0, 8).join(', ')}${files.length > 8 ? ` и ещё ${files.length - 8}` : ''}`); continue; }
       for (const j of jobs) { if (!(await runJob(j, state, false, queueInfo))) failed = true; writeState(state); }
@@ -163,7 +184,7 @@ async function processSchedule(state) {
   }
   for (const d of due) {
     if (state[d.key]) continue;
-    const ok = await runJob(d.job, state, true, `по расписанию «${d.name}»`, d.key);
+    const ok = await runJob(d.job, state, true, `по расписанию «${d.name}»`, d.key, { name: d.name, slotMs: d.slotMs });
     if (!ok) failed = true;
     writeState(state);
   }
