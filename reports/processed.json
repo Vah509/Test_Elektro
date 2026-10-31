@@ -13,5 +13,10 @@
   "date": "2026-10-30T22:29:56.997Z",
   "prefix": "reports/2026-10-30_2227_lab_prod",
   "ok": true
+ },
+ "sat-standard": {
+  "date": "2026-10-31T10:37:00.311Z",
+  "prefix": "reports/2026-10-31_1030_standard_prod",
+  "ok": true
  }
 }
